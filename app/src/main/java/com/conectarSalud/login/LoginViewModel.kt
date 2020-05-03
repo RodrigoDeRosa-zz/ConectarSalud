@@ -1,15 +1,15 @@
-package com.conectarsalud.login
+package com.conectarSalud.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.conectarsalud.connector.login.LoginConnector
+import com.conectarSalud.connector.login.LoginConnector
 
-import com.conectarsalud.R
-import com.conectarsalud.helper.sha256
-import com.conectarsalud.model.state.LoginFormState
-import com.conectarsalud.model.loginuser.LoginResult
+import com.conectarSalud.R
+import com.conectarSalud.helper.sha256
+import com.conectarSalud.model.state.LoginFormState
+import com.conectarSalud.model.loginuser.LoginResult
 
 class LoginViewModel(private val loginConnector: LoginConnector) : ViewModel() {
 

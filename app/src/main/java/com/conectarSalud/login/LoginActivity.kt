@@ -1,4 +1,4 @@
-package com.conectarsalud.login
+package com.conectarSalud.login
 
 import android.app.Activity
 import android.os.Bundle
@@ -13,9 +13,9 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.conectarsalud.R
-import com.conectarsalud.connector.login.LoginConnector
-import com.conectarsalud.model.loginuser.LoggedInUser
+import com.conectarSalud.R
+import com.conectarSalud.connector.login.LoginConnector
+import com.conectarSalud.model.loginuser.LoggedInUser
 
 class LoginActivity : AppCompatActivity() {
     private var loginViewModel: LoginViewModel = LoginViewModel(LoginConnector())

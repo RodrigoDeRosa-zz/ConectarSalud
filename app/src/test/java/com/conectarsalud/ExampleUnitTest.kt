@@ -1,4 +1,4 @@
-package com.conectarsalud
+package com.conectarSalud
 
 import org.junit.Test
 

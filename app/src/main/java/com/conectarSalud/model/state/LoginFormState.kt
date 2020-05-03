@@ -1,4 +1,4 @@
-package com.conectarsalud.model.state
+package com.conectarSalud.model.state
 
 /**
  * Data validation state of the login form.

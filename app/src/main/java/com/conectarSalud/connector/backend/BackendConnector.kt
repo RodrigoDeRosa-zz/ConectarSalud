@@ -1,9 +1,9 @@
-package com.conectarsalud.connector.backend
+package com.conectarSalud.connector.backend
 
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
-import com.conectarsalud.model.loginuser.LoginResult
+import com.conectarSalud.model.loginuser.LoginResult
 import org.json.JSONArray
 import org.json.JSONObject
 

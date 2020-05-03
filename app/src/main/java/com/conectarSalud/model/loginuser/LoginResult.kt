@@ -1,4 +1,4 @@
-package com.conectarsalud.model.loginuser
+package com.conectarSalud.model.loginuser
 
 /**
  * Authentication result : success (user details) or error message.

@@ -1,4 +1,4 @@
-package com.conectarsalud.helper
+package com.conectarSalud.helper
 
 import java.security.MessageDigest
 

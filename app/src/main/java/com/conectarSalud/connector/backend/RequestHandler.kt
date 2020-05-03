@@ -1,4 +1,4 @@
-package com.conectarsalud.connector.backend
+package com.conectarSalud.connector.backend
 
 import android.content.Context
 import com.android.volley.Request

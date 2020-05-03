@@ -1,8 +1,8 @@
-package com.conectarsalud.connector.login
+package com.conectarSalud.connector.login
 
-import com.conectarsalud.R
-import com.conectarsalud.connector.backend.BackendConnector
-import com.conectarsalud.model.loginuser.LoginResult
+import com.conectarSalud.R
+import com.conectarSalud.connector.backend.BackendConnector
+import com.conectarSalud.model.loginuser.LoginResult
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.json.JSONArray
 import org.json.JSONObject

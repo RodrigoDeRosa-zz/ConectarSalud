@@ -1,4 +1,4 @@
-package com.conectarsalud.model.common
+package com.conectarSalud.model.common
 
 /**
  * A generic class that holds a value with its loading status.
