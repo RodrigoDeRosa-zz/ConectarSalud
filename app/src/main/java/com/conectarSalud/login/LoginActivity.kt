@@ -1,6 +1,7 @@
 package com.conectarSalud.login
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,7 +16,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.conectarSalud.R
 import com.conectarSalud.connector.login.LoginConnector
-import com.conectarSalud.model.loginuser.LoggedInUser
+import com.conectarSalud.home.HomeActivity
+
 
 class LoginActivity : AppCompatActivity() {
     private var loginViewModel: LoginViewModel = LoginViewModel(LoginConnector())
@@ -50,13 +52,14 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
             }
-            if (loginResult.userData != null) {
-                updateUiWithUser(loginResult.userData)
+            else {
+                setResult(Activity.RESULT_OK)
+                //Complete and destroy login activity once successful
+                finish()
+                //Redirect to home activity
+                val homepage = Intent(this, HomeActivity::class.java)
+                startActivity(homepage)
             }
-            setResult(Activity.RESULT_OK)
-
-            //Complete and destroy login activity once successful
-            finish()
         })
 
         username.afterTextChanged {
@@ -81,17 +84,6 @@ class LoginActivity : AppCompatActivity() {
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
         }
-    }
-
-    private fun updateUiWithUser(model: LoggedInUser) {
-        val welcome = getString(R.string.welcome)
-        val displayName = model.displayName
-        // TODO : initiate successful logged in experience
-        Toast.makeText(
-                applicationContext,
-                "$welcome $displayName",
-                Toast.LENGTH_LONG
-        ).show()
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
