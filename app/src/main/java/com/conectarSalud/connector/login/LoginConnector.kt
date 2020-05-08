@@ -10,6 +10,7 @@ import org.json.JSONObject
 class LoginConnector() {
 
     private val LOGIN_PATH = "/authenticate"
+    private val BAD_CREDENTIALS = 404
     private val mapper = jacksonObjectMapper()
     private lateinit var callback: (result:LoginResult) -> Unit
 
@@ -30,6 +31,8 @@ class LoginConnector() {
     }
 
     private fun errorResponseHandler(error: VolleyError?) {
-        callback(LoginResult(error = R.string.login_failed))
+        val errorMessage = if (error?.networkResponse?.statusCode == BAD_CREDENTIALS)
+                            R.string.login_failed else R.string.unknown_login_error
+        callback(LoginResult(error = errorMessage))
     }
 }

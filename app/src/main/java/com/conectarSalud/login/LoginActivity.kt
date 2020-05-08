@@ -7,16 +7,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.conectarSalud.R
 import com.conectarSalud.connector.login.LoginConnector
 import com.conectarSalud.home.HomeActivity
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -31,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.password)
         val loginButton = findViewById<Button>(R.id.login)
         val loading = findViewById<ProgressBar>(R.id.loading)
+        val errorMessage = findViewById<TextView>(R.id.loginError)
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
@@ -49,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
             val loginResult = it ?: return@Observer
 
             loading.visibility = View.GONE
+
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
             }
@@ -87,7 +87,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
-        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+        loginError.visibility = View.VISIBLE
+        loginError.setText(errorString)
+        //Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
 }
 

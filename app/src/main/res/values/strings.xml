@@ -17,5 +17,6 @@
     <string name="action_sign_in_short">Ingresá</string>
     <string name="invalid_username">El DNI ingresado es invalido</string>
     <string name="invalid_password">La contraseña ingresada es invalida</string>
-    <string name="login_failed">Error al iniciar sesión</string>
+    <string name="login_failed">Usuario o contraseña incorrecta</string>
+    <string name="unknown_login_error">Error al iniciar sesión</string>
 </resources>
