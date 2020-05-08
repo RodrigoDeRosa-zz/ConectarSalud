@@ -12,7 +12,6 @@ object BackendConnector {
 
     private const val BASE_PATH = "https://connecting-health.herokuapp.com"
 
-    // TODO hacer que devuelva un generic
     fun post(path: String, bodyParams: JSONObject, completionHandler: (JSONObject?) -> Unit, errorHandler: (VolleyError?) -> Unit) {
         val request = JsonObjectRequest(Request.Method.POST, BASE_PATH + path, bodyParams,
             Response.Listener { completionHandler(it) }, Response.ErrorListener { errorHandler(it) })

@@ -11,7 +11,6 @@ class RequestHandler constructor(context: Context) {
         @Volatile
         private var INSTANCE: RequestHandler? = null
         // Instance creator
-        // TODO inicializarlo en el main
         fun configure(context: Context) {
             INSTANCE
                 ?: synchronized(this) {
