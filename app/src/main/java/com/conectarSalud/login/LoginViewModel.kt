@@ -21,7 +21,11 @@ class LoginViewModel(private val loginConnector: LoginConnector) : ViewModel() {
     val loginResult: LiveData<LoginResult> = _loginResult
 
     fun login(username: String, password: String) {
-         _loginResult.value = loginConnector.login(username, password.sha256()) as LoginResult
+         loginConnector.login(username, password.sha256(), ::setLoginAfterRequest)
+    }
+
+    private fun setLoginAfterRequest(result: LoginResult) {
+        _loginResult.value = result
     }
 
     fun loginDataChanged(username: String, password: String) {
