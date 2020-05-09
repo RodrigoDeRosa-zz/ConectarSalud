@@ -1,12 +1,9 @@
-package com.conectarSalud
+package com.conectarSalud.videoChat
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.SurfaceView
 import android.view.View
@@ -14,6 +11,10 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.conectarSalud.R
 
 import io.agora.rtc.IRtcEngineEventHandler
 import io.agora.rtc.RtcEngine
@@ -41,7 +42,11 @@ class VideoChatViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_chat_view)
 
-        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO, PERMISSION_REQ_ID_RECORD_AUDIO) && checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)) {
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO,
+                PERMISSION_REQ_ID_RECORD_AUDIO
+            ) && checkSelfPermission(Manifest.permission.CAMERA,
+                PERMISSION_REQ_ID_CAMERA
+            )) {
             initAgoraEngineAndJoinChannel()
         }
     }
@@ -73,7 +78,9 @@ class VideoChatViewActivity : AppCompatActivity() {
         when (requestCode) {
             PERMISSION_REQ_ID_RECORD_AUDIO -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    checkSelfPermission(Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA)
+                    checkSelfPermission(Manifest.permission.CAMERA,
+                        PERMISSION_REQ_ID_CAMERA
+                    )
                 } else {
                     showLongToast("No permission for " + Manifest.permission.RECORD_AUDIO)
                     finish()

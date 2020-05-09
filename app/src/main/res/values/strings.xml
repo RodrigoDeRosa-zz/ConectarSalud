@@ -10,4 +10,13 @@
     <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
     <string name="agora_access_token"></string>
     <string name="startCall">Iniciar Videollamada</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">DNI</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Iniciar Sesión</string>
+    <string name="action_sign_in_short">Ingresá</string>
+    <string name="invalid_username">El DNI ingresado es invalido</string>
+    <string name="invalid_password">La contraseña ingresada es invalida</string>
+    <string name="login_failed">Usuario o contraseña incorrecta</string>
+    <string name="unknown_login_error">Error al iniciar sesión</string>
 </resources>
