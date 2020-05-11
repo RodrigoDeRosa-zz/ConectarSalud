@@ -45,6 +45,6 @@ class LoginViewModel(private val loginConnector: LoginConnector) : ViewModel() {
 
     // placeholder password validation check
     private fun isPasswordValid(password: String): Boolean {
-        return password.isNotEmpty()
+        return password.isNotEmpty() && password.length < 31
     }
 }
