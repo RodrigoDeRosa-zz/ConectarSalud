@@ -1,17 +1,18 @@
 package com.conectarSalud.connector.login
 
 import com.android.volley.VolleyError
+import com.beust.klaxon.Klaxon
 import com.conectarSalud.R
 import com.conectarSalud.connector.backend.BackendConnector
+import com.conectarSalud.model.loginuser.LoggedInUser
 import com.conectarSalud.model.loginuser.LoginResult
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.json.JSONObject
 
 class LoginConnector() {
 
     private val LOGIN_PATH = "/authenticate"
     private val BAD_CREDENTIALS = 404
-    private val mapper = jacksonObjectMapper()
+    private val mapper = Klaxon()
     private lateinit var callback: (result:LoginResult) -> Unit
 
     fun login(username: String, password: String, callback: (result:LoginResult) -> Unit) {
@@ -25,9 +26,8 @@ class LoginConnector() {
     }
 
     private fun correctResponseHandler(response :JSONObject?) {
-        // TODO wrap the role
-        // response.get("role")
-        callback(LoginResult(responseCode = 200))
+        val userData: LoggedInUser? = mapper.parse<LoggedInUser>(response.toString())
+        callback(LoginResult(responseCode = 200, userData = userData))
     }
 
     private fun errorResponseHandler(error: VolleyError?) {
@@ -36,3 +36,4 @@ class LoginConnector() {
         callback(LoginResult(error = errorMessage))
     }
 }
+
