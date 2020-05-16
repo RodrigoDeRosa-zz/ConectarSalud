@@ -28,7 +28,7 @@
             android:screenOrientation="fullSensor">
         </activity>
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".home.affiliate.HomeAffiliateActivity"
             android:screenOrientation="fullSensor">
         </activity>
         <activity

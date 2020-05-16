@@ -1,7 +1,6 @@
 package com.conectarSalud.login
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,12 +12,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.conectarSalud.R
 import com.conectarSalud.connector.login.LoginConnector
-import com.conectarSalud.home.HomeActivity
+import com.conectarSalud.helper.RedirectHandler
 import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
-    private var loginViewModel: LoginViewModel = LoginViewModel(LoginConnector())
+    public var loginViewModel: LoginViewModel = LoginViewModel(LoginConnector())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                 //Complete and destroy login activity once successful
                 finish()
                 //Redirect to home activity
-                val homepage = Intent(this, HomeActivity::class.java)
+                val homepage = RedirectHandler().successLoginRedirect(this)
                 startActivity(homepage)
             }
         })

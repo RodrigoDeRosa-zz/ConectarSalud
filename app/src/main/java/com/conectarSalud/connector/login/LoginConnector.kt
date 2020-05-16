@@ -26,6 +26,7 @@ class LoginConnector() {
     }
 
     private fun correctResponseHandler(response :JSONObject?) {
+        // TODO habría que controlar que sea médico o afiliado
         val userData: LoggedInUser? = mapper.parse<LoggedInUser>(response.toString())
         callback(LoginResult(responseCode = 200, userData = userData))
     }
