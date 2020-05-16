@@ -11,7 +11,6 @@ class RedirectHandler() {
         if (loginActivity.loginViewModel.loginResult.value?.userData?.role == "affiliate") {
             return Intent(loginActivity, HomeAffiliateActivity::class.java)
         }
-        // TODO replace by HomeMedicActivity
         return Intent(loginActivity, HomeMedicActivity::class.java)
     }
 }
