@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.connector.backend.RequestHandler
+import com.conectarSalud.helper.SocketHandler
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.login.LoginActivity
 
@@ -14,6 +15,9 @@ class MainActivity : AppCompatActivity() {
 
         // Set up application wide request handler
         RequestHandler.configure(context = this)
+
+        // TODO do it when the connection is required
+        SocketHandler.connectSocket()
 
         // Redirects to home if user is logged in or login if not
         if (this.userIsLoggedIn()) {
