@@ -9,6 +9,7 @@ import com.conectarSalud.R
 import com.conectarSalud.helper.sha256
 import com.conectarSalud.model.state.LoginFormState
 import com.conectarSalud.model.loginuser.LoginResult
+import com.conectarSalud.services.Resources
 import java.util.regex.Pattern.matches
 
 class LoginViewModel(private val loginConnector: LoginConnector) : ViewModel() {
@@ -21,7 +22,8 @@ class LoginViewModel(private val loginConnector: LoginConnector) : ViewModel() {
     val loginResult: LiveData<LoginResult> = _loginResult
 
     fun login(username: String, password: String) {
-         loginConnector.login(username, password.sha256(), ::setLoginAfterRequest)
+        Resources.userID = username
+        loginConnector.login(username, password.sha256(), ::setLoginAfterRequest)
     }
 
     private fun setLoginAfterRequest(result: LoginResult) {
