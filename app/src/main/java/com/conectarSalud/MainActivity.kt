@@ -18,10 +18,8 @@ class MainActivity : AppCompatActivity() {
         // Set up application wide request handler
         RequestHandler.configure(context = this)
 
-        // TODO do it when the connection is required
-        SocketHandler.connectSocket()
-
         // Redirects to home if user is logged in or login if not
+        finish()
         if (this.userIsLoggedIn()) {
             startActivity(Intent(this, HomeAffiliateActivity::class.java))
         } else {
