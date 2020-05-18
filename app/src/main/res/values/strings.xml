@@ -19,4 +19,6 @@
     <string name="invalid_password">La contraseña ingresada es invalida</string>
     <string name="login_failed">Usuario o contraseña incorrecta</string>
     <string name="unknown_login_error">Error al iniciar sesión</string>
+    <string name="load_rating">Enviar</string>
+    <string name="ratingComment">Comentarios</string>
 </resources>

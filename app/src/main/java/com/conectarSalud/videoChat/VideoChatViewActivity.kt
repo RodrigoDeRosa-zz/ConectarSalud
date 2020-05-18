@@ -1,6 +1,7 @@
 package com.conectarSalud.videoChat
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.conectarSalud.R
+import com.conectarSalud.rating.RatingActivity
 
 import io.agora.rtc.IRtcEngineEventHandler
 import io.agora.rtc.RtcEngine
@@ -146,6 +148,13 @@ class VideoChatViewActivity : AppCompatActivity() {
 
     fun onEncCallClicked(view: View) {
         finish()
+        //Go to the rating Activity
+        val intent = Intent(this, RatingActivity::class.java)
+        val b = Bundle()
+        //TODO change this for the actual ID
+        b.putString("consultationID", "d3b3e0df-7723-4766-ba82-24beea4899fa") //Your id
+        intent.putExtras(b)
+        startActivity(intent)
     }
 
     private fun initializeAgoraEngine() {
