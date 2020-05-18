@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import com.conectarSalud.R
 import com.conectarSalud.connector.login.LoginConnector
 import com.conectarSalud.helper.RedirectHandler
+import com.conectarSalud.services.Resources
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -52,6 +53,7 @@ class LoginActivity : AppCompatActivity() {
                 showLoginFailed(loginResult.error)
             }
             else {
+                Resources.userLogged = true
                 setResult(Activity.RESULT_OK)
                 //Complete and destroy login activity once successful
                 finish()

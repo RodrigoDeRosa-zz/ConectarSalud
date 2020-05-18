@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.connector.backend.RequestHandler
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.login.LoginActivity
+import com.conectarSalud.rating.RatingActivity
+import com.conectarSalud.services.Resources
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,8 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun userIsLoggedIn():Boolean {
-        //TODO local storage
-        return false
+        return Resources.userLogged
     }
 
 }
