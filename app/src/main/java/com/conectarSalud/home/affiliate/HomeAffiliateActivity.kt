@@ -15,8 +15,8 @@ class HomeAffiliateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home_affiliate)
 
         btnStartCall.setOnClickListener {
-            val intent = Intent(this, WaitingRoomActivity::class.java)
             finish()
+            val intent = Intent(this, WaitingRoomActivity::class.java)
             startActivity(intent)
         }
 

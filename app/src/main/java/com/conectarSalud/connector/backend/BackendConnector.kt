@@ -19,8 +19,9 @@ object BackendConnector {
             .addToRequestQueue(request)
     }
 
-    fun post(path: String, bodyParams: JSONObject, completionHandler: (JSONObject?) -> Unit, errorHandler: (VolleyError?) -> Unit) {
-        val request = JsonObjectRequest(Request.Method.POST, BASE_PATH + path, bodyParams,
+    fun post(path: String, bodyParams: JSONObject?, completionHandler: (JSONObject?) -> Unit, errorHandler: (VolleyError?) -> Unit) {
+        val request = JsonObjectRequest(Request.Method.POST, BASE_PATH + path,
+            bodyParams ?: JSONObject(),
             Response.Listener { completionHandler(it) }, Response.ErrorListener { errorHandler(it) })
         // Add request to handle
         RequestHandler.getInstance()

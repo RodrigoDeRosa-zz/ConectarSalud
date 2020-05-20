@@ -4,6 +4,7 @@ import android.content.Intent
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.home.medic.HomeMedicActivity
 import com.conectarSalud.login.LoginActivity
+import com.conectarSalud.videoChat.VideoChatViewActivity
 
 class RedirectHandler() {
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryBlue">#8cc8de</color>
-    <color name="secondaryLightBlue">#9cdbfc</color>
-    <color name="secondaryGreen">#a0dd9f</color>
+    <color name="primaryBlue">#8CC8DD</color>
+    <color name="secondaryLightBlue">#9BDBFC</color>
+    <color name="secondaryGreen">#A0DD9F</color>
     <color name="errorMessage">#FF0000</color>
     <color name="duskYellow">#A69D62</color>
     <color name="lightGrey">#d3d3d3</color>
