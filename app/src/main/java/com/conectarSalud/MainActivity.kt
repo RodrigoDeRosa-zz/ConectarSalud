@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.connector.backend.RequestHandler
+import com.conectarSalud.helper.RedirectHandler
 import com.conectarSalud.helper.SocketHandler
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.login.LoginActivity
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         // Redirects to home if user is logged in or login if not
         finish()
         if (this.userIsLoggedIn()) {
-            startActivity(Intent(this, HomeAffiliateActivity::class.java))
+            startActivity(RedirectHandler().successLoginRedirect(this))
         } else {
             startActivity(Intent(this, LoginActivity::class.java))
         }

@@ -1,6 +1,7 @@
 package com.conectarSalud.helper
 
 import android.util.Log
+import com.conectarSalud.services.Resources
 import com.github.nkzawa.socketio.client.IO
 import com.github.nkzawa.socketio.client.Socket
 import org.json.JSONObject
@@ -15,15 +16,14 @@ class SocketHandler() {
             appSocket.connect()
         }
 
-        fun setInitialSocketListeners(consultationId: String, callback: (callId: String)->Unit): Unit {
+        fun setInitialSocketListeners(consultationId: String, callback: ()->Unit): Unit {
             appSocket.on(Socket.EVENT_CONNECT) {
                 Log.i("SocketHandler","Socket is now connected")
                 sendData(consultationId)
             }
-            appSocket.on(CALL_STARTED_EVENT) {
-                // TODO get info event
-                val callId = ""
-                callback(callId)
+            appSocket.on(CALL_STARTED_EVENT)  { data ->
+                Resources.callID = ""
+                callback()
             }
         }
 
