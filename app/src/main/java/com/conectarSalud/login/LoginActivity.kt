@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
-    public var loginViewModel: LoginViewModel = LoginViewModel(LoginConnector())
+    var loginViewModel: LoginViewModel = LoginViewModel(LoginConnector())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
             val loginState = it ?: return@Observer
             // disable login button unless both username / password is valid
             loginButton.isEnabled = loginState.isDataValid
+            resetOriginalState()
 
             if (loginState.usernameError != null) {
                 username.error = getString(loginState.usernameError)
@@ -47,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
 
-            loading.visibility = View.GONE
+            resetOriginalState()
 
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
@@ -90,7 +91,11 @@ class LoginActivity : AppCompatActivity() {
     private fun showLoginFailed(@StringRes errorString: Int) {
         loginError.visibility = View.VISIBLE
         loginError.setText(errorString)
-        //Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun resetOriginalState() {
+        loginError.visibility = View.GONE
+        loading.visibility = View.GONE
     }
 }
 
