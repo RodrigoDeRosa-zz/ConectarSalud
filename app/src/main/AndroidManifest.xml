@@ -44,6 +44,11 @@
             android:theme="@style/FullScreenVideoTheme">
         </activity>
         <activity android:name=".rating.RatingActivity" />
+        <service android:name=".services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

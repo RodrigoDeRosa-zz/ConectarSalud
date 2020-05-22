@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "138231682224",
+    "firebase_url": "https://conectarsalud-1a253.firebaseio.com",
+    "project_id": "conectarsalud-1a253",
+    "storage_bucket": "conectarsalud-1a253.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138231682224:android:681e3021a1c65e80245775",
+        "android_client_info": {
+          "package_name": "com.conectarSalud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138231682224-7q97v8and8juedm13226hoo4430f5jsj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.conectarSalud",
+            "certificate_hash": "c47407173089ede220d07a7778c729e11471ea6c"
+          }
+        },
+        {
+          "client_id": "138231682224-1q5c3he0g6vjpgg7eg0klj4n23v07via.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr4-G3lg9pFxc39cV0_am68K_PhQiIyfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138231682224-1q5c3he0g6vjpgg7eg0klj4n23v07via.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
