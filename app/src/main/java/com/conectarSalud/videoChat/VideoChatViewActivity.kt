@@ -118,7 +118,7 @@ class VideoChatViewActivity : AppCompatActivity() {
             iv.clearColorFilter()
         } else {
             iv.isSelected = true
-            iv.setColorFilter(resources.getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY)
+            iv.setColorFilter(resources.getColor(R.color.primaryBlue), PorterDuff.Mode.MULTIPLY)
         }
 
         mRtcEngine!!.muteLocalVideoStream(iv.isSelected)
@@ -136,7 +136,7 @@ class VideoChatViewActivity : AppCompatActivity() {
             iv.clearColorFilter()
         } else {
             iv.isSelected = true
-            iv.setColorFilter(resources.getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY)
+            iv.setColorFilter(resources.getColor(R.color.primaryBlue), PorterDuff.Mode.MULTIPLY)
         }
 
         mRtcEngine!!.muteLocalAudioStream(iv.isSelected)

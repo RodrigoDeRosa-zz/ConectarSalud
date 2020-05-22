@@ -22,7 +22,7 @@ class LoginViewModel(private val loginConnector: LoginConnector) : ViewModel() {
     val loginResult: LiveData<LoginResult> = _loginResult
 
     fun login(username: String, password: String) {
-        Resources.userID = username
+        Resources.dni = username
         loginConnector.login(username, password.sha256(), ::setLoginAfterRequest)
     }
 

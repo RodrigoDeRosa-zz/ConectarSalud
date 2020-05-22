@@ -5,6 +5,5 @@ package com.conectarSalud.model.loginuser
  */
 data class LoginResult(
         val responseCode: Int? = null,
-        val userData: LoggedInUser? = null,
         val error: Int? = null
 )

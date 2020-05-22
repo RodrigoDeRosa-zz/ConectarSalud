@@ -4,8 +4,9 @@ import com.android.volley.VolleyError
 import com.beust.klaxon.Klaxon
 import com.conectarSalud.R
 import com.conectarSalud.connector.backend.BackendConnector
-import com.conectarSalud.model.loginuser.LoggedInUser
 import com.conectarSalud.model.loginuser.LoginResult
+import com.conectarSalud.model.loginuser.ExtraUserData
+import com.conectarSalud.services.Resources
 import org.json.JSONObject
 
 class LoginConnector() {
@@ -26,9 +27,8 @@ class LoginConnector() {
     }
 
     private fun correctResponseHandler(response :JSONObject?) {
-        // TODO habría que controlar que sea médico o afiliado
-        val userData: LoggedInUser? = mapper.parse<LoggedInUser>(response.toString())
-        callback(LoginResult(responseCode = 200, userData = userData))
+        Resources.extraUserData = mapper.parse<ExtraUserData>(response.toString())
+        callback(LoginResult(responseCode = 200))
     }
 
     private fun errorResponseHandler(error: VolleyError?) {

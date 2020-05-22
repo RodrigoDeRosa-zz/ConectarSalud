@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.R
 import com.conectarSalud.videoChat.VideoChatViewActivity
+import com.conectarSalud.videoChat.WaitingRoomActivity
 import kotlinx.android.synthetic.main.activity_home_affiliate.*
 
 class HomeAffiliateActivity : AppCompatActivity() {
@@ -14,7 +15,8 @@ class HomeAffiliateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home_affiliate)
 
         btnStartCall.setOnClickListener {
-            val intent = Intent(this, VideoChatViewActivity::class.java)
+            finish()
+            val intent = Intent(this, WaitingRoomActivity::class.java)
             startActivity(intent)
         }
 
