@@ -10,20 +10,25 @@ class SocketHandler() {
     companion object {
         private const val WAITING_CALL_EVENT: String = "waiting_call"
         private const val CALL_STARTED_EVENT: String = "call_started"
+        private const val REMAINING_TIME: String = "remaining_time"
         private var appSocket: Socket = IO.socket("https://connecting-health.herokuapp.com/")
 
         fun connectSocket(): Unit {
             appSocket.connect()
         }
 
-        fun setInitialSocketListeners(consultationId: String, callback: ()->Unit): Unit {
+        fun setInitialSocketListeners(consultationId: String, callStartedCallback: ()->Unit, remainingTimeCallback: (Int)->Unit): Unit {
             appSocket.on(Socket.EVENT_CONNECT) {
                 Log.i("SocketHandler","Socket is now connected")
                 sendData(consultationId)
             }
             appSocket.on(CALL_STARTED_EVENT)  { data ->
                 Resources.callID = ""
-                callback()
+                callStartedCallback()
+            }
+            appSocket.on(REMAINING_TIME) {data ->
+                val reimainingTime: Int = data.get(0) as Int
+                remainingTimeCallback(reimainingTime)
             }
         }
 

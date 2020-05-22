@@ -14,6 +14,7 @@
     <string name="prompt_email">DNI</string>
     <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in">Iniciar Sesión</string>
+    <string name="cancel_video_chat">Cancelar</string>
     <string name="action_sign_in_short">Ingresá</string>
     <string name="invalid_username">El DNI solamente puede contener números</string>
     <string name="invalid_password">La contraseña ingresada es invalida</string>
@@ -21,6 +22,8 @@
     <string name="unknown_login_error">Error al iniciar sesión</string>
     <string name="load_rating">Enviar</string>
     <string name="videochat_error">Error al iniciar la videollamada</string>
+    <string name="remaining_time">Tiempo de espera aproximado: %s minutos</string>
+    <string name="waiting_for_doctor">Esperando que el médico inicie la video llamada</string>
     <string name="ratingComment">Comentarios</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="fcm_message">FCM Message</string>
