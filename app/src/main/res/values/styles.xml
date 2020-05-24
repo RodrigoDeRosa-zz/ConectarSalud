@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -18,5 +18,19 @@
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlActivated">@color/duskYellow</item>
         <item name="colorControlNormal">@color/lightGrey</item>
+    </style>
+
+    <style name="DefaultButton" parent="Theme.AppCompat">
+        <item name="android:background">@color/secondaryGreen</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">20px</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="DefaultLoadingBar" parent="Theme.AppCompat">
+        <item name="android:indeterminateTint" tools:ignore="NewApi">@color/primaryBlue</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 </resources>
