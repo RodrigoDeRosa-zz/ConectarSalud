@@ -195,7 +195,7 @@ class VideoChatViewActivity : AppCompatActivity() {
         if (token!!.isEmpty()) {
             token = null
         }
-        mRtcEngine!!.joinChannel(token, "demoChannel1", "Extra Optional Data", 0) // if you do not specify the uid, we will generate the uid for you
+        mRtcEngine!!.joinChannel(token, Resources.callID, "", 0) // if you do not specify the uid, we will generate the uid for you
     }
 
     private fun setupRemoteVideo(uid: Int) {
