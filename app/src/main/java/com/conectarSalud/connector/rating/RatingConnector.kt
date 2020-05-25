@@ -34,7 +34,7 @@ class RatingConnector() {
         }
 
         this.ratingCallback = callback
-        BackendConnector.patch("/affiliates/${Resources.extraUserData?.id}/consultations/$consultationID",
+        BackendConnector.patch("/affiliates/${Resources.dni}/consultations/$consultationID",
             parameters, ::correctPatchResponseHandler, ::errorPatchResponseHandler)
     }
 
@@ -50,7 +50,7 @@ class RatingConnector() {
     fun getConsultationData(consultationID: String, callback: (result: consultationDTO?) -> Unit) {
 
         this.consultationCallback = callback
-        BackendConnector.get("/affiliates/${Resources.extraUserData?.id}/consultations/$consultationID",
+        BackendConnector.get("/affiliates/${Resources.dni}/consultations/$consultationID",
             ::correctGetResponseHandler, ::errorGetResponseHandler)
     }
 
