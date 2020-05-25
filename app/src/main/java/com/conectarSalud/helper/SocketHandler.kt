@@ -23,12 +23,12 @@ class SocketHandler() {
                 sendData(consultationId)
             }
             appSocket.on(CALL_STARTED_EVENT)  { data ->
-                val dataJSON: JSONObject = data[0] as JSONObject
+                val dataJSON = JSONObject(data[0] as String)
                 Resources.callID = dataJSON.get("call_id") as String
                 callStartedCallback()
             }
             appSocket.on(REMAINING_TIME) {data ->
-                val dataJSON: JSONObject = data[0] as JSONObject
+                val dataJSON = JSONObject(data[0] as String)
                 val remainingTime: Int = dataJSON.get(REMAINING_TIME) as Int
                 remainingTimeCallback(remainingTime)
             }
