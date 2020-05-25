@@ -210,8 +210,6 @@ class VideoChatViewActivity : AppCompatActivity() {
         mRtcEngine!!.setupRemoteVideo(VideoCanvas(surfaceView, VideoCanvas.RENDER_MODE_FIT, uid))
 
         surfaceView.tag = uid // for mark purpose
-        val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_agora_sdk) // optional UI
-        tipMsg.visibility = View.GONE
     }
 
     private fun leaveChannel() {
@@ -221,9 +219,6 @@ class VideoChatViewActivity : AppCompatActivity() {
     private fun onRemoteUserLeft() {
         val container = findViewById(R.id.remote_video_view_container) as FrameLayout
         container.removeAllViews()
-
-        val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_agora_sdk) // optional UI
-        tipMsg.visibility = View.VISIBLE
     }
 
     private fun onRemoteUserVideoMuted(uid: Int, muted: Boolean) {
