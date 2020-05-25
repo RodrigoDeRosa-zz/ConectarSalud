@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.conectarSalud.R
+import com.conectarSalud.home.affiliate.HomeAffiliateActivity
+import com.conectarSalud.home.medic.HomeMedicActivity
 import com.conectarSalud.rating.RatingActivity
 import com.conectarSalud.services.Resources
 
@@ -149,11 +151,15 @@ class VideoChatViewActivity : AppCompatActivity() {
 
     fun onEncCallClicked(view: View) {
         finish()
-        //Go to the rating Activity
-        val intent = Intent(this, RatingActivity::class.java)
-        val b = Bundle()
-        b.putString("consultationID", Resources.consultationID) //Your id
-        intent.putExtras(b)
+        val intent: Intent;
+        if(Resources.extraUserData?.role == "doctor"){
+            intent = Intent(this, HomeMedicActivity::class.java)
+        } else {
+            intent = Intent(this, RatingActivity::class.java)
+            val b = Bundle()
+            b.putString("consultationID", Resources.consultationID) //Your id
+            intent.putExtras(b)
+        }
         startActivity(intent)
     }
 
