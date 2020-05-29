@@ -16,7 +16,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.conectarSalud.R
+import com.conectarSalud.home.affiliate.HomeAffiliateActivity
+import com.conectarSalud.home.medic.HomeMedicActivity
 import com.conectarSalud.rating.RatingActivity
+import com.conectarSalud.services.Resources
 
 import io.agora.rtc.IRtcEngineEventHandler
 import io.agora.rtc.RtcEngine
@@ -148,12 +151,15 @@ class VideoChatViewActivity : AppCompatActivity() {
 
     fun onEncCallClicked(view: View) {
         finish()
-        //Go to the rating Activity
-        val intent = Intent(this, RatingActivity::class.java)
-        val b = Bundle()
-        //TODO change this for the actual ID
-        b.putString("consultationID", "d3b3e0df-7723-4766-ba82-24beea4899fa") //Your id
-        intent.putExtras(b)
+        val intent: Intent;
+        if(Resources.extraUserData?.role == "doctor"){
+            intent = Intent(this, HomeMedicActivity::class.java)
+        } else {
+            intent = Intent(this, RatingActivity::class.java)
+            val b = Bundle()
+            b.putString("consultationID", Resources.consultationID) //Your id
+            intent.putExtras(b)
+        }
         startActivity(intent)
     }
 
@@ -189,7 +195,7 @@ class VideoChatViewActivity : AppCompatActivity() {
         if (token!!.isEmpty()) {
             token = null
         }
-        mRtcEngine!!.joinChannel(token, "demoChannel1", "Extra Optional Data", 0) // if you do not specify the uid, we will generate the uid for you
+        mRtcEngine!!.joinChannel(token, Resources.callID, "", 0) // if you do not specify the uid, we will generate the uid for you
     }
 
     private fun setupRemoteVideo(uid: Int) {
@@ -204,8 +210,6 @@ class VideoChatViewActivity : AppCompatActivity() {
         mRtcEngine!!.setupRemoteVideo(VideoCanvas(surfaceView, VideoCanvas.RENDER_MODE_FIT, uid))
 
         surfaceView.tag = uid // for mark purpose
-        val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_agora_sdk) // optional UI
-        tipMsg.visibility = View.GONE
     }
 
     private fun leaveChannel() {
@@ -215,9 +219,6 @@ class VideoChatViewActivity : AppCompatActivity() {
     private fun onRemoteUserLeft() {
         val container = findViewById(R.id.remote_video_view_container) as FrameLayout
         container.removeAllViews()
-
-        val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_agora_sdk) // optional UI
-        tipMsg.visibility = View.VISIBLE
     }
 
     private fun onRemoteUserVideoMuted(uid: Int, muted: Boolean) {

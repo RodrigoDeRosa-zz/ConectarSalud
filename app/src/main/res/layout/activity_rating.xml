@@ -56,9 +56,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        style="@style/DefaultButton"
         android:id="@+id/loadRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/commentTextField"
         android:layout_centerHorizontal="true"
         android:text="@string/load_rating"
@@ -68,9 +67,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
+        style="@style/DefaultLoadingBar"
         android:id="@+id/loadearRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/commentTextField"

@@ -11,24 +11,36 @@
     android:paddingBottom="@dimen/activity_vertical_margin">
 
     <ProgressBar
+        style="@style/DefaultLoadingBar"
         android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+    />
 
     <TextView
-        android:id="@+id/waitingMedic"
+        android:id="@+id/remainingTimeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/secondaryGreen"
-        android:text="Esperando que el médico comience la llamada"
+        android:textColor="@color/primaryBlue"
+        android:text="Calculando el tiempo de espera"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loading"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/loading" />
+
+    <Button
+        android:id="@+id/cancelVideoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
+        android:padding="20px"
+        android:background="@color/secondaryGreen"
+        android:textColor="@color/black"
+        android:text="@string/cancel_video_chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remainingTimeMessage"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

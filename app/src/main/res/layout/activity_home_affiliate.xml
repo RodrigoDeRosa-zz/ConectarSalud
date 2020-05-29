@@ -5,9 +5,8 @@
     android:orientation="vertical">
 
         <Button
+            style="@style/DefaultButton"
             android:id="@+id/btnStartCall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/startCall"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
