@@ -39,11 +39,17 @@ class WaitingRoomActivity : AppCompatActivity() {
         // Set consultationID
         Resources.consultationID = response?.get("consultation_id") as String
 
-        // Set socket required listeners
-        SocketHandler.setInitialSocketListeners(Resources.consultationID, ::initVideoChat, ::updateRemainingTime)
+        // If call_id exists, there is a previous call initiated.
+        if (response?.has("call_id")) {
+            Resources.callID = response?.get("call_id") as String
+            initVideoChat()
+        } else {
+            // Set socket required listeners
+            SocketHandler.setInitialSocketListeners(Resources.consultationID, ::initVideoChat, ::updateRemainingTime)
 
-        // Connect socket to server and send waiting_call event
-        SocketHandler.connectSocket()
+            // Connect socket to server and send waiting_call event
+            SocketHandler.connectSocket()
+        }
     }
 
     private fun initVideoChat(): Unit {
