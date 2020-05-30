@@ -7,7 +7,7 @@
     <Button
         style="@style/DefaultButton"
         android:id="@+id/btnStartCall"
-        android:text="@string/startCall"
+        android:text="@string/startCallMedic"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
