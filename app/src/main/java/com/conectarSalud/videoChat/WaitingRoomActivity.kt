@@ -59,9 +59,9 @@ class WaitingRoomActivity : AppCompatActivity() {
     }
 
     private fun updateRemainingTime(remainingTime: Int): Unit {
-        val message: String = if (remainingTime > 0) getString(R.string.waiting_for_doctor)
-                                else String.format(getString(R.string.remaining_time), remainingTime.toString())
-        remainingTimeMessage.text = message
+        val message: String = if (remainingTime > 0) String.format(getString(R.string.remaining_time), remainingTime.toString())
+                                else getString(R.string.waiting_for_doctor)
+        runOnUiThread({ remainingTimeMessage.text = message })
     }
 
     private fun showError(error: VolleyError?): Unit {
