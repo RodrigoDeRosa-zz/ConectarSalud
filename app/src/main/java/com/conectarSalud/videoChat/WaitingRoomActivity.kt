@@ -9,9 +9,9 @@ import com.conectarSalud.R
 import com.conectarSalud.connector.videochat.affiliate.AffiliateVideoChatConnector
 import com.conectarSalud.helper.SocketHandler
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
+import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
 import com.conectarSalud.services.Resources
 import kotlinx.android.synthetic.main.activity_waiting_room.*
-import org.json.JSONObject
 
 class WaitingRoomActivity : AppCompatActivity() {
     private val affiliateVideoChatConnector: AffiliateVideoChatConnector =
@@ -35,18 +35,17 @@ class WaitingRoomActivity : AppCompatActivity() {
         affiliateVideoChatConnector.getConsultationId(::configureSocket, ::showError)
     }
 
-    private fun configureSocket(response: JSONObject?): Unit {
+    private fun configureSocket(response: AffiliateVideoChatDTO?): Unit {
         // Set consultationID
-        Resources.consultationID = response?.get("consultation_id") as String
+        Resources.consultationID = response?.consultationId.toString()
 
-        // If call_id exists, there is a previous call initiated.
-        if (response?.has("call_id")) {
-            Resources.callID = response?.get("call_id") as String
+        if (response?.callId != null) {
+            // If call_id exists, there is a previous call initiated.
+            Resources.callID = response.callId.toString()
             initVideoChat()
         } else {
             // Set socket required listeners
             SocketHandler.setInitialSocketListeners(Resources.consultationID, ::initVideoChat, ::updateRemainingTime)
-
             // Connect socket to server and send waiting_call event
             SocketHandler.connectSocket()
         }
@@ -67,5 +66,4 @@ class WaitingRoomActivity : AppCompatActivity() {
     private fun showError(error: VolleyError?): Unit {
         Toast.makeText(applicationContext, R.string.videochat_error, Toast.LENGTH_SHORT).show()
     }
-
 }

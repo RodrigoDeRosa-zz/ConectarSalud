@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.VolleyError
+import com.beust.klaxon.Klaxon
 import com.conectarSalud.R
 import com.conectarSalud.connector.videochat.medic.MedicVideoChatConnector
+import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
+import com.conectarSalud.model.medicvideochat.MedicVideoChatDTO
 import com.conectarSalud.services.Resources
 import com.conectarSalud.videoChat.VideoChatViewActivity
 import kotlinx.android.synthetic.main.activity_home_medic.*
@@ -24,9 +27,9 @@ class HomeMedicActivity : AppCompatActivity() {
         }
     }
 
-    private fun redirectToVideoChat(response : JSONObject?): Unit {
+    private fun redirectToVideoChat(response : MedicVideoChatDTO?): Unit {
         // Set call id
-        Resources.callID = response?.get("call_id") as String
+        Resources.callID = response?.callId.toString()
 
         // Redirect to call
         finish()
