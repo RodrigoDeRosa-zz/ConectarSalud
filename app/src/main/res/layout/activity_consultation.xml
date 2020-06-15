@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:id="@+id/consultationTitle"
+        android:textStyle="bold"
+        android:text="@string/consultationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="5dp"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/consultationDateTitle"
+        android:text="@string/consultationDateTitle"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_="@+id/consultationDateContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationTitle" />
+
+    <TextView
+        android:id="@+id/consultationDateContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consultationDateTitle"
+        app:layout_constraintTop_toBottomOf="@+id/consultationTitle" />
+
+    <TextView
+        android:id="@+id/consultationAffiliateTitle"
+        android:text="@string/consultationAffiliateTitle"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_="@+id/consultationDateContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationDateTitle" />
+
+    <TextView
+        android:id="@+id/consultationAffiliateContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consultationAffiliateTitle"
+        app:layout_constraintTop_toBottomOf="@+id/consultationDateContent" />
+
+    <TextView
+        android:id="@+id/consultationDoctorTitle"
+        android:text="@string/consultationDoctorTitle"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_="@+id/consultationDateContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationAffiliateTitle" />
+
+    <TextView
+        android:id="@+id/consultationDoctorContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/consultationDoctorTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationAffiliateContent" />
+
+    <TextView
+        android:id="@+id/consultationSpecialitiesTitle"
+        android:text="@string/consultationSpecialitiesTitle"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="start"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationDoctorTitle" />
+
+    <TextView
+        android:id="@+id/consultationSpecialitiesContent"
+        android:maxHeight="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:gravity="start"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationSpecialitiesTitle"
+        android:layout_marginStart="50dp" />
+
+    <TextView
+        android:id="@+id/consultationSymptomsTitle"
+        android:text="@string/consultationSymptomsTitle"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="start"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationSpecialitiesContent" />
+
+    <TextView
+        android:id="@+id/consultationSymptomsContent"
+        android:layout_height="wrap_content"
+        android:maxHeight="80dp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:gravity="start"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationSymptomsTitle"
+        android:layout_marginStart="50dp" />
+
+    <TextView
+        android:id="@+id/consultationIndicationsTitle"
+        android:text="@string/consultationIndicationsTitle"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="start"
+        android:lineSpacingExtra="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationSymptomsContent" />
+
+    <TextView
+        android:id="@+id/consultationIndicationsContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="80dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/rectangle"
+        android:gravity="start"
+        android:lineSpacingExtra="5dp"
+        android:padding="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationIndicationsTitle" />
+
+    <Button
+        style="@style/DefaultButton"
+        android:id="@+id/loadPrescription"
+        android:layout_centerHorizontal="true"
+        android:text="@string/load_prescription"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        style="@style/DefaultLoadingBar"
+        android:id="@+id/loaderConsultation"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/loadPrescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationDoctorContent"
+        app:layout_constraintVertical_bias="0.3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

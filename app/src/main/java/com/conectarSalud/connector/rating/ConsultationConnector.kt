@@ -5,14 +5,16 @@ import com.beust.klaxon.FieldRenamer
 import com.beust.klaxon.Klaxon
 import com.conectarSalud.connector.backend.BackendConnector
 import com.conectarSalud.model.consultation.consultationDTO
+import com.conectarSalud.model.consultation.prescriptionDTO
 import com.conectarSalud.services.Resources
 import org.json.JSONObject
 
-class RatingConnector() {
+class ConsultationConnector() {
 
     private val badCredentials = 404
     private var mapper:Klaxon
     private lateinit var consultationCallback: (result: consultationDTO?) -> Unit
+    private lateinit var prescriptionCallback: (result: prescriptionDTO?) -> Unit
     private lateinit var ratingCallback: (result: Boolean) -> Unit
 
 
@@ -51,12 +53,23 @@ class RatingConnector() {
 
         this.consultationCallback = callback
         BackendConnector.get("/affiliates/${Resources.dni}/consultations/$consultationID",
-            ::correctGetResponseHandler, ::errorGetResponseHandler)
+            ::correctConsultationGetResponseHandler, ::errorGetResponseHandler)
     }
 
-    private fun correctGetResponseHandler(response :JSONObject?) {
+    fun getPrescriptionData(consultationID: String, callback: (result: prescriptionDTO?) -> Unit) {
+        this.prescriptionCallback = callback
+        BackendConnector.get("/affiliates/${Resources.dni}/prescriptions/$consultationID",
+            ::correctPrescriptionGetResponseHandler, ::errorGetResponseHandler)
+    }
+
+    private fun correctConsultationGetResponseHandler(response :JSONObject?) {
         val consultationData: consultationDTO? = mapper.parse<consultationDTO>(response.toString())
         consultationData?.let { consultationCallback(it) }
+    }
+
+    private fun correctPrescriptionGetResponseHandler(response :JSONObject?) {
+        val prescriptionData: prescriptionDTO? = mapper.parse<prescriptionDTO>(response.toString())
+        prescriptionData?.let { prescriptionCallback(it) }
     }
 
     private fun errorGetResponseHandler(error: VolleyError?) {

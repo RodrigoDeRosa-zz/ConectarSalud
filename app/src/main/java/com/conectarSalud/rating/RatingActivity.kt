@@ -7,17 +7,16 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.R
-import com.conectarSalud.connector.rating.RatingConnector
+import com.conectarSalud.connector.rating.ConsultationConnector
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.model.consultation.consultationDTO
 import com.google.android.material.textfield.TextInputEditText
 
 class RatingActivity : AppCompatActivity() {
 
-    //TODO remove this ID
     private var consultationID = ""
     private var doctorName = ""
-    private var ratingConnector = RatingConnector()
+    private var ratingConnector = ConsultationConnector()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,6 @@ class RatingActivity : AppCompatActivity() {
         ratingBar.setOnRatingBarChangeListener { _, _, _ ->  run { loadRating.isEnabled = true }}
 
         loadRating.setOnClickListener {
-            //TODO post to backend and redirect to MainActivity
             ratingConnector.patchScore(consultationID, ratingBar.rating,
                 ratingComment.text.toString(), ::handleRatingAfterRequest)
         }
