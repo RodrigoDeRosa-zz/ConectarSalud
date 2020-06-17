@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.conectarSalud.R
 import com.conectarSalud.adapter.HistoryRVAdapter
 import com.conectarSalud.connector.rating.RatingConnector
+import com.conectarSalud.interfaces.OnHistoryAffiliateItemClickListener
 import com.conectarSalud.model.HistoryAffiliateItemModel
 import com.conectarSalud.model.consultation.consultationsDTO
 
-class AffiliateHistoryFragment: Fragment() {
+class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener {
 
     private lateinit var emptyConsultationsTxt: TextView
     private var ratingConnector = RatingConnector()
@@ -39,7 +41,7 @@ class AffiliateHistoryFragment: Fragment() {
         var mLayoutManager = LinearLayoutManager(this.activity)
         historyRv.layoutManager = mLayoutManager
 
-        val adapter = context?.let { HistoryRVAdapter(getHistory(), it) }
+        val adapter = context?.let { HistoryRVAdapter(getHistory(), it, this) }
         historyRv.adapter = adapter
 
         return view
@@ -68,6 +70,10 @@ class AffiliateHistoryFragment: Fragment() {
         } else {
             emptyConsultationsTxt.text = "Todavía no ha realizado ninguna consulta"
         }
+    }
+
+    override fun onItemClicked(history: HistoryAffiliateItemModel) {
+        //TODO -> shows consultation extra info here
     }
 
 }
