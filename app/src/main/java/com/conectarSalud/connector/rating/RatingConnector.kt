@@ -78,13 +78,18 @@ class RatingConnector() {
         for (i in 0 until response!!.length()) {
             val history = consultationsDTO()
             val jsonHistory: JSONObject = response.getJSONObject(i)
-            history.doctor_firstname = jsonHistory.getString("doctor_firstname")
-            history.doctor_lastname = jsonHistory.getString("doctor_lastname")
-            //history.doctor_specialties = jsonHistory.getJSONArray("doctor_specialties")
-            history.date = jsonHistory.getString("units")
+            var specialties = jsonHistory.getJSONArray("doctor_specialties")
+
+            history.doctor_firstname = jsonHistory.getString("doctor_first_name")
+            history.doctor_lastname = jsonHistory.getString("doctor_last_name")
+
+            for (j in 0 until specialties!!.length()) {
+                history.doctor_specialties?.add(specialties[j].toString())
+            }
+
+            history.date = jsonHistory.getString("date")
             histories.add(history)
         }
-        //val consultationData: ArrayList<consultationsDTO>?// = mapper.parse<ArrayList<consultationsDTO>>(response)
         histories?.let { consultationsCallback(it) }
     }
 

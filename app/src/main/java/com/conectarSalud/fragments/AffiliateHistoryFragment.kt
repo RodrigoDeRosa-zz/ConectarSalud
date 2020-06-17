@@ -55,9 +55,11 @@ class AffiliateHistoryFragment: Fragment() {
             for (i in 0 until result.size) {
                 result[i].doctor_firstname?.let { result[i].doctor_lastname?.let { it1 ->
                     result[i].date?.let { it2 ->
-                        HistoryAffiliateItemModel(it,
-                            it1, listOf("Medico","Ginecologo"), it2
-                        )
+                        result[i].doctor_specialties?.let { it3 ->
+                            HistoryAffiliateItemModel(it,
+                                it1, it3, it2
+                            )
+                        }
                     }
                 } }
                     ?.let { histories.add(it) }
