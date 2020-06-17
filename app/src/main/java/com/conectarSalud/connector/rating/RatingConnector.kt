@@ -5,7 +5,9 @@ import com.beust.klaxon.FieldRenamer
 import com.beust.klaxon.Klaxon
 import com.conectarSalud.connector.backend.BackendConnector
 import com.conectarSalud.model.consultation.consultationDTO
+import com.conectarSalud.model.consultation.consultationsDTO
 import com.conectarSalud.services.Resources
+import org.json.JSONArray
 import org.json.JSONObject
 
 class RatingConnector() {
@@ -14,6 +16,7 @@ class RatingConnector() {
     private var mapper:Klaxon
     private lateinit var consultationCallback: (result: consultationDTO?) -> Unit
     private lateinit var ratingCallback: (result: Boolean) -> Unit
+    private lateinit var consultationsCallback: (result: ArrayList<consultationsDTO>?) -> Unit
 
 
     init {
@@ -60,7 +63,34 @@ class RatingConnector() {
     }
 
     private fun errorGetResponseHandler(error: VolleyError?) {
-        consultationCallback(null)
+        consultationsCallback(null)
+    }
+
+    fun getConsultations( callback: (result: ArrayList<consultationsDTO>?) -> Unit) {
+
+        this.consultationsCallback = callback
+        BackendConnector.getArray("/affiliates/${Resources.dni}/consultations",
+            ::correctGetArrayResponseHandler, ::errorGetResponseHandler)
+    }
+
+    private fun correctGetArrayResponseHandler(response :JSONArray?) {
+        val histories: ArrayList<consultationsDTO> = ArrayList()
+        for (i in 0 until response!!.length()) {
+            val history = consultationsDTO()
+            val jsonHistory: JSONObject = response.getJSONObject(i)
+            var specialties = jsonHistory.getJSONArray("doctor_specialties")
+
+            history.doctor_firstname = jsonHistory.getString("doctor_first_name")
+            history.doctor_lastname = jsonHistory.getString("doctor_last_name")
+
+            for (j in 0 until specialties!!.length()) {
+                history.doctor_specialties?.add(specialties[j].toString())
+            }
+
+            history.date = jsonHistory.getString("date")
+            histories.add(history)
+        }
+        histories?.let { consultationsCallback(it) }
     }
 
 }

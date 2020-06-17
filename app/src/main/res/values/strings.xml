@@ -28,4 +28,7 @@
     <string name="ratingComment">Comentarios</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="fcm_message">FCM Message</string>
+    <!-- Menu -->
+    <string name="menu_home">Nueva Consulta</string>
+    <string name="menu_history">Historial Consultas</string>
 </resources>

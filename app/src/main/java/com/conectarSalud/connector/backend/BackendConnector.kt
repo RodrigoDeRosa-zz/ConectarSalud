@@ -3,7 +3,9 @@ package com.conectarSalud.connector.backend
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
+import org.json.JSONArray
 import org.json.JSONObject
 
 
@@ -44,5 +46,13 @@ object BackendConnector {
 
     private fun paramString(params: MutableMap<String, String>): String =
         params.entries.joinToString("&") { "${it.key}=${it.value}" }
+
+    fun getArray(path: String, completionHandler: (JSONArray?) -> Unit, errorHandler: (VolleyError?) -> Unit) {
+        val request = JsonArrayRequest(Request.Method.GET, BASE_PATH + path, JSONArray(),
+            Response.Listener { completionHandler(it) }, Response.ErrorListener { errorHandler(it) })
+        // Add request to handle
+        RequestHandler.getInstance()
+            .addToRequestQueue(request)
+    }
 
 }
