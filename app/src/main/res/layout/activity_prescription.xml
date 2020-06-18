@@ -19,7 +19,7 @@
         android:layout_margin="10dp"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="5dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:maxWidth="300dp"
-        android:maxHeight="100dp"
+        android:maxHeight="50dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/brandImage"
         android:layout_marginStart="10dp" />
@@ -69,7 +69,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="5dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/prescriptionDateTitle"
         app:layout_constraintTop_toBottomOf="@+id/brandImage"
         android:layout_marginStart="5dp" />
@@ -83,7 +83,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionDateContent"
         android:layout_marginStart="10dp" />
@@ -97,7 +97,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionDoctorTitle"
         android:layout_marginStart="20dp" />
@@ -111,7 +111,7 @@
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:maxWidth="180dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/prescriptionDoctorNameTitle"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionDoctorTitle" />
 
@@ -124,7 +124,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionDoctorNameContent"
         android:layout_marginStart="20dp" />
@@ -138,7 +138,7 @@
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:maxWidth="220dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/prescriptionDoctorLicenceTitle"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionDoctorNameContent" />
 
@@ -151,7 +151,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionDoctorLicenceContent"
         android:layout_marginStart="20dp" />
@@ -165,7 +165,7 @@
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:maxWidth="210dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/prescriptionDoctorSpecialitiesTitle"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionDoctorLicenceContent" />
 
@@ -178,7 +178,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionSpecialitiesContent"
         android:layout_marginStart="10dp" />
@@ -192,7 +192,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionPatientTitle"
         android:layout_marginStart="20dp" />
@@ -206,7 +206,7 @@
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:maxWidth="180dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/prescriptionPatientNameTitle"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionPatientTitle" />
 
@@ -219,7 +219,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionPatientNameContent"
         android:layout_marginStart="20dp" />
@@ -233,7 +233,7 @@
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:maxWidth="200dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/prescriptionPatientPlanTitle"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionPatientNameContent" />
 
@@ -246,7 +246,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionPatientPlanContent"
         android:layout_marginStart="20dp" />
@@ -260,7 +260,7 @@
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:maxWidth="200dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/prescriptionPatientNumberTitle"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionPatientPlanContent" />
 
@@ -273,7 +273,7 @@
         android:background="@drawable/rectangle"
         android:gravity="start"
         android:padding="10dp"
-        android:textSize="20sp"
+        
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/prescriptionPatientNumberContent" />
@@ -285,7 +285,6 @@
         android:layout_height="wrap_content"
         android:lineSpacingExtra="5dp"
         android:text="@string/prescriptionEndTitle"
-        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

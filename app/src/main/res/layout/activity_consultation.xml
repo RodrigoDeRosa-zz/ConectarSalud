@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationTitle" />
 
@@ -44,7 +44,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
-        android:textSize="20sp"
+        
         android:lineSpacingExtra="5dp"
         app:layout_constraintStart_toEndOf="@+id/consultationDateTitle"
         app:layout_constraintTop_toBottomOf="@+id/consultationTitle"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationDateTitle" />
 
@@ -71,7 +71,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/consultationAffiliateTitle"
         app:layout_constraintTop_toBottomOf="@+id/consultationDateContent" />
 
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationAffiliateTitle" />
 
@@ -96,7 +96,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toEndOf="@+id/consultationDoctorTitle"
         app:layout_constraintTop_toBottomOf="@+id/consultationAffiliateContent" />
 
@@ -109,7 +109,7 @@
         android:layout_margin="20dp"
         android:gravity="start"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationDoctorTitle" />
 
@@ -122,7 +122,7 @@
         android:layout_marginLeft="50dp"
         android:gravity="start"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationSpecialitiesTitle"
         android:layout_marginStart="50dp" />
@@ -136,7 +136,7 @@
         android:layout_margin="20dp"
         android:gravity="start"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationSpecialitiesContent" />
 
@@ -149,7 +149,7 @@
         android:layout_marginLeft="50dp"
         android:gravity="start"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationSymptomsTitle"
         android:layout_marginStart="50dp" />
@@ -163,7 +163,7 @@
         android:layout_margin="20dp"
         android:gravity="start"
         android:lineSpacingExtra="5dp"
-        android:textSize="20sp"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationSymptomsContent" />
 
@@ -177,21 +177,22 @@
         android:gravity="start"
         android:lineSpacingExtra="5dp"
         android:padding="10dp"
-        android:textSize="20sp"
+        
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationIndicationsTitle" />
 
     <Button
-        style="@style/DefaultButton"
         android:id="@+id/loadPrescription"
+        style="@style/DefaultButton"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         android:text="@string/load_prescription"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consultationIndicationsContent" />
 
     <ProgressBar
         style="@style/DefaultLoadingBar"

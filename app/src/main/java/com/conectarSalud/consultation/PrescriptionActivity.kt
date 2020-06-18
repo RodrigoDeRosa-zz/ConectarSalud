@@ -37,10 +37,10 @@ class PrescriptionActivity : AppCompatActivity() {
             doctor.text = Html.fromHtml(result.doctorFirstName + " " + result.doctorLastName)
             val specialties = findViewById<TextView>(R.id.prescriptionSpecialitiesContent)
             var specialtiesText = ""
-            result.doctorSpecialities.forEachIndexed() { index, specialty ->
+            result.doctorSpecialties.forEachIndexed() { index, specialty ->
                 run {
                     specialtiesText += specialty
-                    if (index == result.doctorSpecialities.size - 1) {
+                    if (index != result.doctorSpecialties.size - 1) {
                         specialtiesText += "; "
                     }
                 }

@@ -38,11 +38,11 @@ class ConsultationActivity : AppCompatActivity() {
             doctor.text = Html.fromHtml(result.doctorFirstName + " " + result.doctorLastName)
             val specialties = findViewById<TextView>(R.id.consultationSpecialitiesContent)
             var specialtiesText = ""
-            result.doctorSpecialities.forEachIndexed() { index, specialty ->
+            result.doctorSpecialties.forEachIndexed() { index, specialty ->
                 run {
                     specialtiesText += specialty
-                    if (index == result.doctorSpecialities.size - 1) {
-                        specialtiesText += "\n"
+                    if (index != result.doctorSpecialties.size - 1) {
+                        specialtiesText += "; "
                     }
                 }
             }
@@ -52,8 +52,8 @@ class ConsultationActivity : AppCompatActivity() {
             result.symptoms.forEachIndexed() { index, symptom ->
                 run {
                     symptomsText += symptom
-                    if (index == result.symptoms.size - 1) {
-                        symptomsText += "\n"
+                    if (index != result.symptoms.size - 1) {
+                        symptomsText += "; "
                     }
                 }
             }
@@ -76,7 +76,11 @@ class ConsultationActivity : AppCompatActivity() {
                 val loadPrescription = findViewById<Button>(R.id.loadPrescription)
                 loadPrescription.visibility = View.VISIBLE
                 loadPrescription.setOnClickListener {
-                    startActivity(Intent(this, PrescriptionActivity::class.java))
+                    val intent = Intent(this, PrescriptionActivity::class.java)
+                    val b = Bundle()
+                    b.putString("consultationID", consultationID)
+                    intent.putExtras(b)
+                    startActivity(intent)
                 }
 
             }
@@ -86,7 +90,7 @@ class ConsultationActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT).show()
         }
 
-        val loader = findViewById<ProgressBar>(R.id.loadearRating)
+        val loader = findViewById<ProgressBar>(R.id.loaderConsultation)
         loader.visibility = View.GONE
 
     }

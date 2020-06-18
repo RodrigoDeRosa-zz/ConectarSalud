@@ -95,6 +95,7 @@ class ConsultationConnector() {
 
             history.doctor_firstname = jsonHistory.getString("doctor_first_name")
             history.doctor_lastname = jsonHistory.getString("doctor_last_name")
+            history.consultation_id = jsonHistory.getString("consultation_id")
 
             for (j in 0 until specialties!!.length()) {
                 history.doctor_specialties?.add(specialties[j].toString())
