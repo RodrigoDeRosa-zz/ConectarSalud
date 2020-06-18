@@ -9,7 +9,8 @@
     <!-- You will need to deploy your own token server for production release -->
     <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
     <string name="agora_access_token"></string>
-    <string name="startCall">Iniciar Videoconsulta</string>
+    <string name="startCallMedic">Iniciar Videoconsulta</string>
+    <string name="startCallAffiliate">Solicitar Consulta</string>
     <!-- Strings related to login -->
     <string name="prompt_email">DNI</string>
     <string name="prompt_password">Contraseña</string>
@@ -46,4 +47,7 @@
     <string name="prescriptionPatientPlanTitle">Plan:</string>
     <string name="prescriptionPatientNumberTitle">Afiliado N°:</string>
     <string name="prescriptionEndTitle">RECETA GENERADA POR CONECTAR SALUD</string>
+    <!-- Menu -->
+    <string name="menu_home">Nueva Consulta</string>
+    <string name="menu_history">Historial Consultas</string>
 </resources>
