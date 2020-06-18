@@ -1,15 +1,14 @@
 package com.conectarSalud.model.consultation
 
-import java.util.*
-
-data class consultationDTO (
+data class prescriptionDTO (
     val date: String,
     val patientFirstName: String,
     val patientLastName: String,
+    val patientPlan: String,
+    val patientId: String,
     val doctorFirstName: String,
     val doctorLastName: String,
+    val doctorLicence: String,
     val doctorSpecialties: List<String>,
-    val symptoms: List<String>,
-    val hasPrescription: Boolean,
-    val indications: String? = null
-) {}
+    val prescriptionText: String? = null
+)

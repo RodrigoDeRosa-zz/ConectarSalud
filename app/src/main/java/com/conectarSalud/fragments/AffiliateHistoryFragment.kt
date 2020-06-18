@@ -1,5 +1,6 @@
 package com.conectarSalud.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.conectarSalud.R
 import com.conectarSalud.adapter.HistoryRVAdapter
-import com.conectarSalud.connector.rating.RatingConnector
+import com.conectarSalud.connector.rating.ConsultationConnector
+import com.conectarSalud.consultation.ConsultationActivity
+import com.conectarSalud.consultation.PrescriptionActivity
 import com.conectarSalud.interfaces.OnHistoryAffiliateItemClickListener
 import com.conectarSalud.model.HistoryAffiliateItemModel
 import com.conectarSalud.model.consultation.consultationsDTO
@@ -19,7 +22,7 @@ import com.conectarSalud.model.consultation.consultationsDTO
 class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener {
 
     private lateinit var emptyConsultationsTxt: TextView
-    private var ratingConnector = RatingConnector()
+    private var ratingConnector = ConsultationConnector()
     private var histories: ArrayList<HistoryAffiliateItemModel> = ArrayList()
 
     companion object {
@@ -58,9 +61,11 @@ class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener 
                 result[i].doctor_firstname?.let { result[i].doctor_lastname?.let { it1 ->
                     result[i].date?.let { it2 ->
                         result[i].doctor_specialties?.let { it3 ->
-                            HistoryAffiliateItemModel(it,
-                                it1, it3, it2
-                            )
+                            result[i].consultation_id?.let { it4 ->
+                                HistoryAffiliateItemModel(it,
+                                    it1, it3, it2, it4
+                                )
+                            }
                         }
                     }
                 } }
@@ -73,7 +78,11 @@ class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener 
     }
 
     override fun onItemClicked(history: HistoryAffiliateItemModel) {
-        //TODO -> shows consultation extra info here
+        val intent = Intent(this.context, ConsultationActivity::class.java)
+        val b = Bundle()
+        b.putString("consultationID", history.consultationId)
+        intent.putExtras(b)
+        startActivity(intent)
     }
 
 }
