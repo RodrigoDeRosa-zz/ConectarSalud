@@ -33,7 +33,6 @@
         android:layout_margin="20dp"
         android:lineSpacingExtra="5dp"
         android:textSize="20sp"
-        app:layout_="@+id/consultationDateContent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationTitle" />
 
@@ -41,12 +40,15 @@
         android:id="@+id/consultationDateContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:lineSpacingExtra="5dp"
+        android:maxWidth="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:lineSpacingExtra="5dp"
         app:layout_constraintStart_toEndOf="@+id/consultationDateTitle"
-        app:layout_constraintTop_toBottomOf="@+id/consultationTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/consultationTitle"
+ />
 
     <TextView
         android:id="@+id/consultationAffiliateTitle"
@@ -57,7 +59,6 @@
         android:layout_margin="20dp"
         android:lineSpacingExtra="5dp"
         android:textSize="20sp"
-        app:layout_="@+id/consultationDateContent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationDateTitle" />
 
@@ -65,10 +66,12 @@
         android:id="@+id/consultationAffiliateContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:maxWidth="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consultationAffiliateTitle"
         app:layout_constraintTop_toBottomOf="@+id/consultationDateContent" />
 
@@ -81,7 +84,6 @@
         android:layout_margin="20dp"
         android:lineSpacingExtra="5dp"
         android:textSize="20sp"
-        app:layout_="@+id/consultationDateContent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationAffiliateTitle" />
 
@@ -89,11 +91,13 @@
         android:id="@+id/consultationDoctorContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:maxWidth="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:lineSpacingExtra="5dp"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/consultationDoctorTitle"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consultationAffiliateContent" />
 
     <TextView
