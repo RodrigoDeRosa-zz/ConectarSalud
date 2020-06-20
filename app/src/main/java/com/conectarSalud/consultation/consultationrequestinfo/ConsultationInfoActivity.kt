@@ -3,6 +3,7 @@ package com.conectarSalud.consultation.consultationrequestinfo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.R
 import com.conectarSalud.connector.consultation.consultationinfo.ConsultationInfoConnector
@@ -24,15 +25,19 @@ class ConsultationInfoActivity : AppCompatActivity() {
         consultationInfoActivity.getSymptoms(::addTextOptionWithList)
 
         btnGoWaitingRoom.setOnClickListener {
-            val parameters = JSONObject()
-            parameters.put("symptoms", selectedSymptoms.toString())
-            parameters.put("reason", editTextTextConsultationReason.text.toString())
+            if (selectedSymptoms.size > 0) {
+                val parameters = JSONObject()
+                parameters.put("symptoms", selectedSymptoms.toString())
+                parameters.put("reason", editTextTextConsultationReason.text.toString())
 
-            // TODO check parameters
-            finish()
-            val intent = Intent(this, WaitingRoomActivity::class.java)
-            intent.putExtra("bodyParams", parameters.toString())
-            startActivity(intent)
+                // TODO check parameters
+                finish()
+                val intent = Intent(this, WaitingRoomActivity::class.java)
+                intent.putExtra("bodyParams", parameters.toString())
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Debe seleccionar al menos un sintoma", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
