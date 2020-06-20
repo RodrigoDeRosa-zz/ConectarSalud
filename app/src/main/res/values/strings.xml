@@ -11,6 +11,9 @@
     <string name="agora_access_token"></string>
     <string name="startCallMedic">Iniciar Videoconsulta</string>
     <string name="startCallAffiliate">Solicitar Consulta</string>
+    <string name="startCallGeneric">Iniciar</string>
+    <string name="reasonAsk">Indique los motivos de su consulta</string>
+    <string name="symptomsAsk">¿Cuáles son sus sintomas?</string>
     <!-- Strings related to login -->
     <string name="prompt_email">DNI</string>
     <string name="prompt_password">Contraseña</string>

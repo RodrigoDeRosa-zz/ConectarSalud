@@ -5,15 +5,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.VolleyError
-import com.beust.klaxon.Klaxon
 import com.conectarSalud.R
-import com.conectarSalud.connector.videochat.medic.MedicVideoChatConnector
-import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
+import com.conectarSalud.connector.consultation.videochat.medic.MedicVideoChatConnector
 import com.conectarSalud.model.medicvideochat.MedicVideoChatDTO
 import com.conectarSalud.services.Resources
-import com.conectarSalud.videoChat.VideoChatViewActivity
+import com.conectarSalud.consultation.VideoChatViewActivity
 import kotlinx.android.synthetic.main.activity_home_medic.*
-import org.json.JSONObject
 
 class HomeMedicActivity : AppCompatActivity() {
     private val medicVideoChatConnector: MedicVideoChatConnector = MedicVideoChatConnector()
