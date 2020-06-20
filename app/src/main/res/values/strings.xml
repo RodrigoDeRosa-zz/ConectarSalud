@@ -31,4 +31,26 @@
     <string name="ratingComment">Comentarios</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
     <string name="fcm_message">FCM Message</string>
+    <string name="consultationDateTitle">Fecha:</string>
+    <string name="consultationAffiliateTitle">Paciente:</string>
+    <string name="consultationTitle">Información de la Consulta</string>
+    <string name="consultationDoctorTitle">Doctor:</string>
+    <string name="consultationSpecialitiesTitle">Especialidades:</string>
+    <string name="consultationSymptomsTitle">Síntomas:</string>
+    <string name="consultationIndicationsTitle">Indicaciones:</string>
+    <string name="load_prescription">Ver Receta</string>
+    <string name="prescriptionTitle">Receta Digital</string>
+    <string name="prescriptionDoctorTitle">Atendido por:</string>
+    <string name="prescriptionDoctorNameTitle">Nombre y Apellido:</string>
+    <string name="prescriptionDoctorLicenceTitle">M.N.:</string>
+    <string name="prescriptionDoctorSpecialitiesTitle">Especialidades:</string>
+    <string name="prescriptionDateTitle">Fecha:</string>
+    <string name="prescriptionPatientTitle">Paciente:</string>
+    <string name="prescriptionPatientNameTitle">Nombre y Apellido:</string>
+    <string name="prescriptionPatientPlanTitle">Plan:</string>
+    <string name="prescriptionPatientNumberTitle">Afiliado N°:</string>
+    <string name="prescriptionEndTitle">RECETA GENERADA POR CONECTAR SALUD</string>
+    <!-- Menu -->
+    <string name="menu_home">Nueva Consulta</string>
+    <string name="menu_history">Historial Consultas</string>
 </resources>

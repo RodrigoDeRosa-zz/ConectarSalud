@@ -36,6 +36,14 @@
             android:screenOrientation="fullSensor">
         </activity>
         <activity
+            android:name=".consultation.ConsultationActivity"
+            android:screenOrientation="fullSensor">
+        </activity>
+        <activity
+            android:name=".consultation.PrescriptionActivity"
+            android:screenOrientation="fullSensor">
+        </activity>
+        <activity
             android:name=".consultation.watingconsultation.WaitingRoomActivity"
             android:screenOrientation="fullSensor">
         </activity>
