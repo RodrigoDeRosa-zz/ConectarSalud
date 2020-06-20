@@ -24,5 +24,21 @@ class AffiliateVideoChatConnector() {
         videoChatData?.let { affiliateVideoChatCallback(it) }
     }
 
+    fun cancelConsultation(consultationID: String) {
+        BackendConnector.delete(
+            "/affiliates/${Resources.dni}/consultations/$consultationID",
+            ::deleteResponseHandler,
+            ::deleteErrorHandler
+        )
+    }
+
+    private fun deleteResponseHandler(response: JSONObject?) {
+
+    }
+
+    private fun deleteErrorHandler(response: VolleyError?) {
+
+    }
+
 }
 

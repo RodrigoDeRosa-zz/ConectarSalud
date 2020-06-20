@@ -38,6 +38,14 @@ object BackendConnector {
             .addToRequestQueue(request)
     }
 
+    fun delete(path: String, completionHandler: (JSONObject?) -> Unit, errorHandler: (VolleyError?) -> Unit) {
+        val request = CustomJsonObjectRequest(Request.Method.DELETE, BASE_PATH + path, JSONObject(),
+            Response.Listener { completionHandler(it) }, Response.ErrorListener { errorHandler(it) })
+        // Add request to handle
+        RequestHandler.getInstance()
+            .addToRequestQueue(request)
+    }
+
     private fun url(path: String, params: MutableMap<String, String>): String =
         StringBuilder(BASE_PATH + path).apply {
             val queryString = paramString(params)
