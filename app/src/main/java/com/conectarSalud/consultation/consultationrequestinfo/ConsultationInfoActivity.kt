@@ -1,8 +1,11 @@
 package com.conectarSalud.consultation.consultationrequestinfo
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.R
@@ -58,6 +61,7 @@ class ConsultationInfoActivity : AppCompatActivity() {
         //list.forEach(::transformToView)
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun handleChildClick(expandableListAdapter: CustomExpandableListAdapter, childView: View, groupPosition: Int, childPosition: Int): Boolean {
         val symptom: String = expandableListAdapter.getChild(groupPosition, childPosition) as String
         if (symptom in selectedSymptoms) {

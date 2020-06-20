@@ -24,7 +24,7 @@ class WaitingRoomActivity : AppCompatActivity() {
         setContentView(R.layout.activity_waiting_room)
 
         cancelVideoButton.setOnClickListener {
-            // TODO do back request
+            affiliateVideoChatConnector.cancelConsultation(Resources.consultationID)
             finish()
             val intent = Intent(this, HomeAffiliateActivity::class.java)
             startActivity(intent)

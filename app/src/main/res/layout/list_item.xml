@@ -15,10 +15,4 @@
         android:textColor="@color/grey"
         />
 
-    <!--<RadioButton
-        android:id="@+id/childRadioButton"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="right"
-        android:buttonTint="@color/black" />-->
 </LinearLayout>
