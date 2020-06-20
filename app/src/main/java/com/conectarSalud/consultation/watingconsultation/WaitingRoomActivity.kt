@@ -12,7 +12,6 @@ import com.conectarSalud.helper.SocketHandler
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
 import com.conectarSalud.services.Resources
-import kotlinx.android.synthetic.main.activity_home_medic.*
 import kotlinx.android.synthetic.main.activity_waiting_room.*
 
 class WaitingRoomActivity : AppCompatActivity() {
@@ -34,8 +33,7 @@ class WaitingRoomActivity : AppCompatActivity() {
     }
 
     private fun doVideochatInitialRequest(): Unit {
-        val params = intent.getStringExtra("bodyParams")
-        affiliateVideoChatConnector.getConsultationId(params, ::configureSocket, ::showError)
+        affiliateVideoChatConnector.getConsultationId(Resources.symptoms, ::configureSocket, ::showError)
     }
 
     private fun configureSocket(response: AffiliateVideoChatDTO?): Unit {

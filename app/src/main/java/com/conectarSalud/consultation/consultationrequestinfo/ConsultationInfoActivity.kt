@@ -9,9 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.R
 import com.conectarSalud.connector.consultation.consultationinfo.ConsultationInfoConnector
 import com.conectarSalud.consultation.watingconsultation.WaitingRoomActivity
+import com.conectarSalud.model.consultation.activeConsultationDTO
 import com.conectarSalud.util.CustomExpandableListAdapter
 import kotlinx.android.synthetic.main.activity_consultation_info.*
-import org.json.JSONObject
+import com.conectarSalud.services.Resources
 
 class ConsultationInfoActivity : AppCompatActivity() {
     private val consultationInfoActivity: ConsultationInfoConnector = ConsultationInfoConnector()
@@ -25,13 +26,11 @@ class ConsultationInfoActivity : AppCompatActivity() {
 
         btnGoWaitingRoom.setOnClickListener {
             if (selectedSymptoms.size > 0) {
-                val parameters = JSONObject()
-                parameters.put("symptoms", selectedSymptoms.toString())
-                parameters.put("reason", editTextTextConsultationReason.text.toString())
+
+                Resources.symptoms = activeConsultationDTO(selectedSymptoms, editTextTextConsultationReason.text.toString())
 
                 finish()
                 val intent = Intent(this, WaitingRoomActivity::class.java)
-                intent.putExtra("bodyParams", parameters.toString())
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Debe seleccionar al menos un sintoma", Toast.LENGTH_SHORT).show()

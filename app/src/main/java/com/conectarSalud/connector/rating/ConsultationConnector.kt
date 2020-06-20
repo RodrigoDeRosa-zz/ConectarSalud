@@ -4,6 +4,7 @@ import com.android.volley.VolleyError
 import com.beust.klaxon.FieldRenamer
 import com.beust.klaxon.Klaxon
 import com.conectarSalud.connector.backend.BackendConnector
+import com.conectarSalud.model.consultation.activeConsultationDTO
 import com.conectarSalud.model.consultation.consultationDTO
 import com.conectarSalud.model.consultation.prescriptionDTO
 import com.conectarSalud.model.consultation.consultationsDTO
@@ -19,6 +20,7 @@ class ConsultationConnector() {
     private lateinit var prescriptionCallback: (result: prescriptionDTO?) -> Unit
     private lateinit var ratingCallback: (result: Boolean) -> Unit
     private lateinit var consultationsCallback: (result: ArrayList<consultationsDTO>?) -> Unit
+    private lateinit var activeConsultationsCallback: (result: activeConsultationDTO?) -> Unit
 
 
     init {
@@ -77,6 +79,17 @@ class ConsultationConnector() {
 
     private fun errorGetResponseHandler(error: VolleyError?) {
         consultationsCallback(null)
+    }
+
+    fun getActiveConsultations(callback: (result: activeConsultationDTO?) -> Unit) {
+        this.activeConsultationsCallback = callback
+        BackendConnector.get("/affiliates/${Resources.dni}/active-consultations",
+            ::correctActiveConsultationGetResponseHandler, ::errorGetResponseHandler)
+    }
+
+    private fun correctActiveConsultationGetResponseHandler(response :JSONObject?) {
+        val consultationData: activeConsultationDTO? = mapper.parse<activeConsultationDTO>(response.toString())
+        consultationData?.let { activeConsultationsCallback(it) }
     }
 
     fun getConsultations( callback: (result: ArrayList<consultationsDTO>?) -> Unit) {

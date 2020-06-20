@@ -4,6 +4,7 @@ import com.android.volley.VolleyError
 import com.beust.klaxon.Klaxon
 import com.conectarSalud.connector.backend.BackendConnector
 import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
+import com.conectarSalud.model.consultation.activeConsultationDTO
 import com.conectarSalud.services.Resources
 import org.json.JSONObject
 
@@ -12,10 +13,13 @@ class AffiliateVideoChatConnector() {
     private var mapper: Klaxon = Klaxon()
     private lateinit var affiliateVideoChatCallback: (result: AffiliateVideoChatDTO?) -> Unit
 
-    fun getConsultationId(params: String, callback: (response :AffiliateVideoChatDTO?) -> Unit, callbackError: (error: VolleyError?) -> Unit): Unit {
+    fun getConsultationId(params: activeConsultationDTO, callback: (response :AffiliateVideoChatDTO?) -> Unit, callbackError: (error: VolleyError?) -> Unit): Unit {
         this.affiliateVideoChatCallback = callback
         val url: String = String.format(CONSULTATION_PATH, Resources.dni)
-        BackendConnector.post(url, JSONObject(params), ::correctGetResponseHandler, callbackError)
+        val parameters = JSONObject()
+        parameters.put("symptoms", mapper.toJsonString(params.symptoms))
+        parameters.put("reason", params.reason)
+        BackendConnector.post(url, parameters, ::correctGetResponseHandler, callbackError)
     }
 
     private fun correctGetResponseHandler(response :JSONObject?) {
