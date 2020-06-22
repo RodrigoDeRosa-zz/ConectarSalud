@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.conectarSalud.R
@@ -57,13 +58,13 @@ class ConsultationInfoActivity : AppCompatActivity() {
     private fun handleChildClick(expandableListAdapter: CustomExpandableListAdapter, childView: View, groupPosition: Int, childPosition: Int): Boolean {
         val symptom: String = expandableListAdapter.getChild(groupPosition, childPosition) as String
         if (symptom in selectedSymptoms) {
-            //childView.findViewById<TextView>(R.id.childListName).setTextColor(R.color.grey)
+            expandableListAdapter.removeAsSelected(groupPosition, childPosition)
             selectedSymptoms.remove(symptom)
         } else {
-            //childView.findViewById<TextView>(R.id.childListName).setTextColor(R.color.white)
-            //childView.findViewById<TextView>(R.id.childListName).setTextColor(R.color.secondaryGreen)
+            expandableListAdapter.setAsSelected(groupPosition, childPosition)
             selectedSymptoms.add(symptom)
         }
+        expandableListAdapter.notifyDataSetChanged()
         return false
     }
 
