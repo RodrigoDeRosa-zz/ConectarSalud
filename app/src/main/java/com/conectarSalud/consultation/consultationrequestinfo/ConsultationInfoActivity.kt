@@ -65,6 +65,11 @@ class ConsultationInfoActivity : AppCompatActivity() {
             selectedSymptoms.add(symptom)
         }
         expandableListAdapter.notifyDataSetChanged()
+        if (selectedSymptoms.size > 0) {
+            btnGoWaitingRoom.visibility = View.VISIBLE
+        } else {
+            btnGoWaitingRoom.visibility = View.INVISIBLE
+        }
         return false
     }
 

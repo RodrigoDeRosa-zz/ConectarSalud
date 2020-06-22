@@ -61,7 +61,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         if (selectedItems.containsKey(key) && selectedItems.get(key).contains(String.valueOf(expandedListPosition))) {
             expandedListTextView.setTextColor(context.getResources().getColor(R.color.secondaryLightBlue));
         } else {
-            expandedListTextView.setTextColor(Color.LTGRAY);
+            expandedListTextView.setTextColor(context.getResources().getColor(R.color.lightGrey));
         }
         return convertView;
     }
@@ -78,9 +78,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     public void removeAsSelected(int listPosition, final int expandedListPosition) {
-        String key = String.valueOf(expandedListPosition);
+        String key = String.valueOf(listPosition);
         if (selectedItems.containsKey(key)) {
-            selectedItems.get(key).remove(String.valueOf(listPosition));
+            selectedItems.get(key).remove(String.valueOf(expandedListPosition));
         }
     }
 
