@@ -1,4 +1,4 @@
-package com.conectarSalud.videoChat
+package com.conectarSalud.consultation
 
 import android.Manifest
 import android.content.Intent
@@ -10,13 +10,11 @@ import android.view.SurfaceView
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.conectarSalud.R
-import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.home.medic.HomeMedicActivity
 import com.conectarSalud.rating.RatingActivity
 import com.conectarSalud.services.Resources

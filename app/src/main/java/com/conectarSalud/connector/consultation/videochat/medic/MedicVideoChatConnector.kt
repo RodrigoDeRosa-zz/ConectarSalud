@@ -1,9 +1,8 @@
-package com.conectarSalud.connector.videochat.medic
+package com.conectarSalud.connector.consultation.videochat.medic
 
 import com.android.volley.VolleyError
 import com.beust.klaxon.Klaxon
 import com.conectarSalud.connector.backend.BackendConnector
-import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
 import com.conectarSalud.model.medicvideochat.MedicVideoChatDTO
 import com.conectarSalud.services.Resources
 import org.json.JSONObject

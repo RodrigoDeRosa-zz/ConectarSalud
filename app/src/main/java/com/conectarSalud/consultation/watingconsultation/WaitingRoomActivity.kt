@@ -1,4 +1,4 @@
-package com.conectarSalud.videoChat
+package com.conectarSalud.consultation.watingconsultation
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.VolleyError
 import com.conectarSalud.R
-import com.conectarSalud.connector.videochat.affiliate.AffiliateVideoChatConnector
+import com.conectarSalud.connector.consultation.videochat.affiliate.AffiliateVideoChatConnector
+import com.conectarSalud.consultation.VideoChatViewActivity
 import com.conectarSalud.helper.SocketHandler
 import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
@@ -32,7 +33,7 @@ class WaitingRoomActivity : AppCompatActivity() {
     }
 
     private fun doVideochatInitialRequest(): Unit {
-        affiliateVideoChatConnector.getConsultationId(::configureSocket, ::showError)
+        affiliateVideoChatConnector.getConsultationId(Resources.symptoms, ::configureSocket, ::showError)
     }
 
     private fun configureSocket(response: AffiliateVideoChatDTO?): Unit {

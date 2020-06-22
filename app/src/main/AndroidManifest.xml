@@ -44,10 +44,15 @@
             android:screenOrientation="fullSensor">
         </activity>
         <activity
-            android:name=".videoChat.WaitingRoomActivity"
+            android:name=".consultation.watingconsultation.WaitingRoomActivity"
             android:screenOrientation="fullSensor">
-        </activity>        <activity
-            android:name=".videoChat.VideoChatViewActivity"
+        </activity>
+        <activity
+            android:name=".consultation.consultationrequestinfo.ConsultationInfoActivity"
+            android:screenOrientation="fullSensor">
+        </activity>
+        <activity
+            android:name=".consultation.VideoChatViewActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/FullScreenVideoTheme">
         </activity>

@@ -11,6 +11,9 @@
     <string name="agora_access_token"></string>
     <string name="startCallMedic">Iniciar Videoconsulta</string>
     <string name="startCallAffiliate">Solicitar Consulta</string>
+    <string name="startCallGeneric">Iniciar</string>
+    <string name="reasonAsk">Indique los motivos de su consulta</string>
+    <string name="symptomsAsk">¿Cuáles son sus sintomas?</string>
     <!-- Strings related to login -->
     <string name="prompt_email">DNI</string>
     <string name="prompt_password">Contraseña</string>
@@ -27,7 +30,7 @@
     <string name="waiting_for_doctor">Esperando que el médico inicie la video llamada</string>
     <string name="ratingComment">Comentarios</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
-    <string name="fcm_message">FCM Message</string>
+    <string name="fcm_message">Consulta Médica</string>
     <string name="consultationDateTitle">Fecha:</string>
     <string name="consultationAffiliateTitle">Paciente:</string>
     <string name="consultationTitle">Información de la Consulta</string>
