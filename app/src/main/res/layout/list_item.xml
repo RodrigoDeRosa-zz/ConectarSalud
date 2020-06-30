@@ -12,6 +12,17 @@
         android:paddingLeft="50dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
+        android:textSize="12dp"/>
+
+
+    <ImageView
+        android:id="@+id/imageCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/twotone_done_black_18"
+        android:tint="@color/secondaryLightBlue"
+        android:visibility="invisible"
         />
 
 </LinearLayout>

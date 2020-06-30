@@ -31,15 +31,23 @@
             android:id="@+id/symptomsList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-            android:layout_marginTop="10px">
+            android:indicatorLeft="?android:attr/expandableListPreferredChildIndicatorLeft"
+            android:layout_marginTop="10dp"
+            android:childDivider="#00000000">
         </ExpandableListView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="40"
+        android:layout_weight="10"
+        android:orientation="vertical" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30"
         android:orientation="vertical" >
         <TextView
             android:id="@+id/symptomsA"
@@ -53,18 +61,20 @@
         <EditText
             android:id="@+id/editTextTextConsultationReason"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:inputType="textPersonName" />
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:background="@drawable/edit_text_border"/>
     </LinearLayout>
 
     <Button
-        style="@style/DefaultButton"
         android:id="@+id/btnGoWaitingRoom"
         android:text="@string/startCallGeneric"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:visibility="invisible"
+        android:background="@color/secondaryGreen"
+        android:textColor="@color/black"
         />
 
 </LinearLayout>

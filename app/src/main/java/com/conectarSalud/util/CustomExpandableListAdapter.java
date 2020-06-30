@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.conectarSalud.R;
@@ -56,12 +57,15 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         }
         TextView expandedListTextView = convertView.findViewById(R.id.childListName);
         expandedListTextView.setText(expandedListText);
+        ImageView imageView = convertView.findViewById(R.id.imageCorrect);
 
         String key = String.valueOf(listPosition);
         if (selectedItems.containsKey(key) && selectedItems.get(key).contains(String.valueOf(expandedListPosition))) {
             expandedListTextView.setTextColor(context.getResources().getColor(R.color.secondaryLightBlue));
+            imageView.setVisibility(View.VISIBLE);
         } else {
-            expandedListTextView.setTextColor(context.getResources().getColor(R.color.lightGrey));
+            expandedListTextView.setTextColor(context.getResources().getColor(R.color.grey));
+            imageView.setVisibility(View.INVISIBLE);
         }
         return convertView;
     }
@@ -108,7 +112,6 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int listPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
-        String listTitle = (String) getGroup(listPosition);
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
