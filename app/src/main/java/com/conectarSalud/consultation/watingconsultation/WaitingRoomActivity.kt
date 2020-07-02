@@ -13,6 +13,7 @@ import com.conectarSalud.home.affiliate.HomeAffiliateActivity
 import com.conectarSalud.model.affiliatevideochat.AffiliateVideoChatDTO
 import com.conectarSalud.services.Resources
 import kotlinx.android.synthetic.main.activity_waiting_room.*
+import java.net.Socket
 
 class WaitingRoomActivity : AppCompatActivity() {
     private val affiliateVideoChatConnector: AffiliateVideoChatConnector =
@@ -24,7 +25,9 @@ class WaitingRoomActivity : AppCompatActivity() {
 
         cancelVideoButton.setOnClickListener {
             affiliateVideoChatConnector.cancelConsultation(Resources.consultationID)
+            SocketHandler.destoySocket()
             finish()
+
             val intent = Intent(this, HomeAffiliateActivity::class.java)
             startActivity(intent)
         }
@@ -66,5 +69,10 @@ class WaitingRoomActivity : AppCompatActivity() {
 
     private fun showError(error: VolleyError?): Unit {
         Toast.makeText(applicationContext, R.string.videochat_error, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        SocketHandler.destoySocket()
     }
 }
