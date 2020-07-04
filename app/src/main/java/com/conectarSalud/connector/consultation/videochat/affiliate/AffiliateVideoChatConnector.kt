@@ -19,6 +19,7 @@ class AffiliateVideoChatConnector() {
         val parameters = JSONObject()
         parameters.put("symptoms", mapper.toJsonString(params.symptoms))
         parameters.put("reason", params.reason)
+        parameters.put("patient_dni", Resources.patientDni)
         BackendConnector.post(url, parameters, ::correctGetResponseHandler, callbackError)
     }
 
