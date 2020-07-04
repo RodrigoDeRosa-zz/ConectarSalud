@@ -5,6 +5,7 @@ import com.conectarSalud.model.loginuser.ExtraUserData
 
 
 object Resources {
+    lateinit var patientDni: String
     lateinit var symptoms: activeConsultationDTO
     lateinit var consultationID: String
     lateinit var callID: String
