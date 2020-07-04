@@ -9,7 +9,7 @@
     <!-- You will need to deploy your own token server for production release -->
     <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
     <string name="agora_access_token"></string>
-    <string name="startCallMedic">Iniciar Videoconsulta</string>
+    <string name="startCallMedic">Solicitar Consulta</string>
     <string name="startCallAffiliate">Solicitar Consulta</string>
     <string name="startCallGeneric">Iniciar</string>
     <string name="reasonAsk">Indique los motivos de su consulta</string>
@@ -53,4 +53,5 @@
     <!-- Menu -->
     <string name="menu_home">Nueva Consulta</string>
     <string name="menu_history">Historial Consultas</string>
+    <string name="family_group">Seleccione al afiliado que realizará la consulta</string>
 </resources>
