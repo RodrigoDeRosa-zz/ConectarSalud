@@ -61,6 +61,9 @@ class AffiliateHomeFragment: Fragment() {
         listView.adapter = adapter as ListAdapter?
         //set the first as default
         listView.setItemChecked(0, true)
+
+        val loadHome = this.view?.findViewById<ProgressBar>(R.id.loaderHome)
+        loadHome?.visibility = View.GONE
     }
 
     private fun setActiveConsultationAfterRequest(result: activeConsultationDTO?) {
