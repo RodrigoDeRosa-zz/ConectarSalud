@@ -62,9 +62,13 @@ class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener 
                     result[i].date?.let { it2 ->
                         result[i].doctor_specialties?.let { it3 ->
                             result[i].consultation_id?.let { it4 ->
-                                HistoryAffiliateItemModel(it,
-                                    it1, it3, it2, it4
-                                )
+                                result[i].patient_firstname?.let { it5 ->
+                                    result[i].patient_lastname?.let { it6 ->
+                                        HistoryAffiliateItemModel(
+                                            it, it1, it3, it2, it4, it5, it6
+                                        )
+                                    }
+                                }
                             }
                         }
                     }
