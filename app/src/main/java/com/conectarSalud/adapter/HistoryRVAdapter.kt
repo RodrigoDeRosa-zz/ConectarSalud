@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.conectarSalud.R
 import com.conectarSalud.interfaces.OnHistoryAffiliateItemClickListener
 import com.conectarSalud.model.HistoryAffiliateItemModel
+import org.w3c.dom.Text
 
 
 class HistoryRVAdapter(val histories : ArrayList<HistoryAffiliateItemModel>,
@@ -20,11 +21,13 @@ class HistoryRVAdapter(val histories : ArrayList<HistoryAffiliateItemModel>,
         private lateinit var historyClicked: HistoryAffiliateItemModel
 
         var medicName: TextView
+        var affiliateName: TextView
         var specialities: TextView
         var date: TextView
 
         init {
             medicName = itemView.findViewById(R.id.medic_name)
+            affiliateName = itemView.findViewById(R.id.affiliate_name)
             specialities = itemView.findViewById(R.id.specialities)
             date = itemView.findViewById(R.id.date)
         }
@@ -42,6 +45,7 @@ class HistoryRVAdapter(val histories : ArrayList<HistoryAffiliateItemModel>,
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         var history = histories?.get(position)
         holder.medicName.text = (history?.medicName ?: "none") +" "+ (history?.medicLastName?: "none")
+        holder.affiliateName.text = (history?.affiliateName ?: "none") +" "+ (history?.affiliateLastName?: "none")
         holder.specialities.text = history?.specialities?.joinToString(", ") ?: "none"
         holder.date.text = "Atendido el "+history?.date
         holder.bind(histories[position],listener)

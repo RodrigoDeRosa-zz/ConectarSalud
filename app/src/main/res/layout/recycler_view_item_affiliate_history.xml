@@ -22,20 +22,26 @@
             tools:text="Pedro García" />
 
         <TextView
-            android:id="@+id/specialities"
+            android:id="@+id/affiliate_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/medic_name"
-            android:layout_marginTop="9dp"
             android:textSize="20sp"
             tools:text="Ginecologo, Médico" />
+
+        <TextView
+            android:id="@+id/specialities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/affiliate_name"
+            android:textSize="20sp"
+            tools:text="Facundo Guerrero" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/medic_name"
-            android:layout_marginTop="38dp"
+            android:layout_below="@+id/specialities"
             tools:text="@tools:sample/date/ddmmyy" />
 
     </RelativeLayout>
