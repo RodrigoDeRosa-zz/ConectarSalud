@@ -9,15 +9,17 @@
 
     <TextView
         android:id="@+id/history_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/historial_de_consultas"
+        android:textStyle="bold"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="5dp"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/history_affiliate_recycler_view"
-        tools:text="Historial de Consultas" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/empty_consultations_txt"
