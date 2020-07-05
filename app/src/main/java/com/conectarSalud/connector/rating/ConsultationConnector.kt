@@ -4,10 +4,7 @@ import com.android.volley.VolleyError
 import com.beust.klaxon.FieldRenamer
 import com.beust.klaxon.Klaxon
 import com.conectarSalud.connector.backend.BackendConnector
-import com.conectarSalud.model.consultation.activeConsultationDTO
-import com.conectarSalud.model.consultation.consultationDTO
-import com.conectarSalud.model.consultation.prescriptionDTO
-import com.conectarSalud.model.consultation.consultationsDTO
+import com.conectarSalud.model.consultation.*
 import com.conectarSalud.services.Resources
 import org.json.JSONArray
 import org.json.JSONObject
@@ -21,7 +18,7 @@ class ConsultationConnector() {
     private lateinit var ratingCallback: (result: Boolean) -> Unit
     private lateinit var consultationsCallback: (result: ArrayList<consultationsDTO>?) -> Unit
     private lateinit var activeConsultationsCallback: (result: activeConsultationDTO?) -> Unit
-
+    private lateinit var familyCallback: (result: ArrayList<familyMemberDTO>?) -> Unit
 
     init {
         val renamer = object: FieldRenamer {
@@ -61,6 +58,13 @@ class ConsultationConnector() {
             ::correctConsultationGetResponseHandler, ::errorGetResponseHandler)
     }
 
+    fun getFamilyData(callback: (result: ArrayList<familyMemberDTO>?) -> Unit) {
+
+        this.familyCallback = callback
+        BackendConnector.getArray("/affiliates/${Resources.dni}/family",
+            ::correctFamilyGetResponseHandler, ::errorFamilyGetResponseHandler)
+    }
+
     fun getPrescriptionData(consultationID: String, callback: (result: prescriptionDTO?) -> Unit) {
         this.prescriptionCallback = callback
         BackendConnector.get("/affiliates/${Resources.dni}/prescriptions/$consultationID",
@@ -77,6 +81,23 @@ class ConsultationConnector() {
         prescriptionData?.let { prescriptionCallback(it) }
     }
 
+    private fun correctFamilyGetResponseHandler(response :JSONArray?) {
+        val family: ArrayList<familyMemberDTO> = ArrayList()
+        for (i in 0 until response!!.length()) {
+            val familyMember = familyMemberDTO()
+            val jsonFamilyMember: JSONObject = response.getJSONObject(i)
+
+            familyMember.dni = jsonFamilyMember.getString("dni")
+            familyMember.affiliate_first_name = jsonFamilyMember.getString("affiliate_first_name")
+            familyMember.affiliate_last_name = jsonFamilyMember.getString("affiliate_last_name")
+
+            family.add(familyMember)
+        }
+        familyCallback(family)
+
+
+    }
+
     private fun errorGetResponseHandler(error: VolleyError?) {
         consultationsCallback(null)
     }
@@ -85,6 +106,10 @@ class ConsultationConnector() {
         this.activeConsultationsCallback = callback
         BackendConnector.get("/affiliates/${Resources.dni}/active-consultations",
             ::correctActiveConsultationGetResponseHandler, ::errorGetResponseHandler)
+    }
+
+    private fun errorFamilyGetResponseHandler(error: VolleyError?) {
+        familyCallback(null)
     }
 
     private fun correctActiveConsultationGetResponseHandler(response :JSONObject?) {
@@ -108,6 +133,8 @@ class ConsultationConnector() {
 
             history.doctor_firstname = jsonHistory.getString("doctor_first_name")
             history.doctor_lastname = jsonHistory.getString("doctor_last_name")
+            history.patient_firstname = jsonHistory.getString("patient_first_name")
+            history.patient_lastname = jsonHistory.getString("patient_last_name")
             history.consultation_id = jsonHistory.getString("consultation_id")
 
             for (j in 0 until specialties!!.length()) {
