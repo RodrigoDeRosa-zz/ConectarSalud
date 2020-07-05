@@ -49,16 +49,6 @@ class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener 
         val adapter = context?.let { HistoryRVAdapter(getHistory(), it, this) }
         historyRv.adapter = adapter
 
-//        val btnStartCall: Button = view.findViewById(R.id.loadConsultation) as Button
-//        btnStartCall.setOnClickListener {
-//            //call back if there are existing consultations
-////            Log.d("AAAAAAAAAA", "checked: " + family[listView.checkedItemPosition])
-//            val patientDNI :String = family[listView.checkedItemPosition].split("-")[0].split(" ")[0]
-//            Resources.patientDni = patientDNI
-//            this.consultationConnector.getActiveConsultations(::setActiveConsultationAfterRequest)
-//        }
-
-
         return view
     }
 

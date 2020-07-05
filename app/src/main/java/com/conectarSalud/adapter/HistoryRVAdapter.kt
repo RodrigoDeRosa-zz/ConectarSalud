@@ -1,12 +1,16 @@
 package com.conectarSalud.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.conectarSalud.R
+import com.conectarSalud.consultation.ConsultationActivity
 import com.conectarSalud.interfaces.OnHistoryAffiliateItemClickListener
 import com.conectarSalud.model.HistoryAffiliateItemModel
 import org.w3c.dom.Text
@@ -24,21 +28,14 @@ class HistoryRVAdapter(val histories : ArrayList<HistoryAffiliateItemModel>,
         var affiliateName: TextView
         var specialities: TextView
         var date: TextView
+        var button: Button
 
         init {
             medicName = itemView.findViewById(R.id.medic_name)
             affiliateName = itemView.findViewById(R.id.affiliate_name)
             specialities = itemView.findViewById(R.id.specialities)
             date = itemView.findViewById(R.id.date)
-        }
-
-        fun bind(history: HistoryAffiliateItemModel,clickListener: OnHistoryAffiliateItemClickListener)
-        {
-            historyClicked = history
-
-            itemView.setOnClickListener {
-                clickListener.onItemClicked(history)
-            }
+            button = itemView.findViewById(R.id.loadConsultation)
         }
     }
 
@@ -48,7 +45,14 @@ class HistoryRVAdapter(val histories : ArrayList<HistoryAffiliateItemModel>,
         holder.affiliateName.text = (history?.affiliateName ?: "none") +" "+ (history?.affiliateLastName?: "none")
         holder.specialities.text = history?.specialities?.joinToString(", ") ?: "none"
         holder.date.text = "Atendido el "+history?.date
-        holder.bind(histories[position],listener)
+
+        holder.button.setOnClickListener {
+            val intent = Intent(context, ConsultationActivity::class.java)
+            val b = Bundle()
+            b.putString("consultationID", history.consultationId)
+            intent.putExtras(b)
+            context.startActivity(intent)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
