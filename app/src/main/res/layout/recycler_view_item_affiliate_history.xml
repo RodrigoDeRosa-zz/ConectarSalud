@@ -37,6 +37,7 @@
                     android:id="@+id/medic_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="14sp"
                     android:layout_marginLeft="10sp"
                     tools:text="Pedro García" />
             </LinearLayout>
@@ -58,7 +59,7 @@
                     android:id="@+id/specialities"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="10sp"
                     tools:text="Ginecologo, Médico" />
             </LinearLayout>
@@ -80,7 +81,7 @@
                     android:id="@+id/affiliate_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="10sp"
                     tools:text="Facundo Guerrero" />
             </LinearLayout>
@@ -102,7 +103,7 @@
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="10sp"
                     tools:text="@tools:sample/date/ddmmyy" />
             </LinearLayout>
