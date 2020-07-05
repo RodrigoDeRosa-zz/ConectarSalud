@@ -12,8 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="30dp"
-        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:lineSpacingExtra="5dp"
+        android:textSize="28sp"
         tools:text="Historial de Consultas" />
 
     <androidx.cardview.widget.CardView
@@ -28,40 +29,93 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-
             android:id="@+id/item_affiliate_history">
 
-            <TextView
-                android:id="@+id/medic_name"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="5dp"
-                android:textSize="30sp"
-                tools:text="Pedro García" />
+                android:id="@+id/medic_name_layout">
 
-            <TextView
-                android:id="@+id/affiliate_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/medic_name"
-                android:textSize="20sp"
-                tools:text="Ginecologo, Médico" />
+                <TextView
+                    android:text="Doctor:"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5dp"  />
 
-            <TextView
-                android:id="@+id/specialities"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/affiliate_name"
-                android:textSize="20sp"
-                tools:text="Facundo Guerrero" />
+                <TextView
+                    android:id="@+id/medic_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    tools:text="Pedro García" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/date"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/specialities"
-                tools:text="@tools:sample/date/ddmmyy" />
+                android:id="@+id/medic_specialty_layout"
+                android:layout_below="@id/medic_name_layout">
+
+                <TextView
+                    android:text="Especialidad:"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5dp"  />
+
+                <TextView
+                    android:id="@+id/specialities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:layout_marginLeft="10sp"
+                    tools:text="Ginecologo, Médico" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/affiliate_name_layout"
+                android:layout_below="@id/medic_specialty_layout">
+
+                <TextView
+                    android:text="Paciente:"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5dp"  />
+
+                <TextView
+                    android:id="@+id/affiliate_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:layout_marginLeft="10sp"
+                    tools:text="Facundo Guerrero" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_layout"
+                android:layout_below="@id/affiliate_name_layout">
+
+                <TextView
+                    android:text="Fecha:"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5dp"  />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:layout_marginLeft="10sp"
+                    tools:text="@tools:sample/date/ddmmyy" />
+            </LinearLayout>
 
             <Button
                 style="@style/DefaultButton"
