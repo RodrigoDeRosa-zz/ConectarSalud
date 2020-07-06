@@ -7,5 +7,6 @@ data class HistoryAffiliateItemModel(
     val date: String,
     val consultationId: String,
     val affiliateName: String,
-    val affiliateLastName: String
-)
+    val affiliateLastName: String,
+    val affiliateDni: String
+    )

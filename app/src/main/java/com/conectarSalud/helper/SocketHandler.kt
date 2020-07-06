@@ -17,6 +17,10 @@ class SocketHandler() {
             appSocket.connect()
         }
 
+        fun destoySocket(): Unit {
+            appSocket.close()
+        }
+
         fun setInitialSocketListeners(consultationId: String, callStartedCallback: ()->Unit, remainingTimeCallback: (Int)->Unit): Unit {
             appSocket.on(Socket.EVENT_CONNECT) {
                 Log.i("SocketHandler","Socket is now connected")

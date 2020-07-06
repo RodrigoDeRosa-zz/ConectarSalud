@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +19,7 @@ import com.conectarSalud.consultation.PrescriptionActivity
 import com.conectarSalud.interfaces.OnHistoryAffiliateItemClickListener
 import com.conectarSalud.model.HistoryAffiliateItemModel
 import com.conectarSalud.model.consultation.consultationsDTO
+import com.conectarSalud.services.Resources
 
 class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener {
 
@@ -64,9 +66,11 @@ class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener 
                             result[i].consultation_id?.let { it4 ->
                                 result[i].patient_firstname?.let { it5 ->
                                     result[i].patient_lastname?.let { it6 ->
-                                        HistoryAffiliateItemModel(
-                                            it, it1, it3, it2, it4, it5, it6
-                                        )
+                                        result[i].patient_dni?.let { it7 ->
+                                            HistoryAffiliateItemModel(
+                                                it, it1, it3, it2, it4, it5, it6, it7
+                                            )
+                                        }
                                     }
                                 }
                             }
