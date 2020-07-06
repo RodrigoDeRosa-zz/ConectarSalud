@@ -99,8 +99,30 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/date_layout"
+                android:id="@+id/affiliate_dni_layout"
                 android:layout_below="@id/affiliate_name_layout">
+
+                <TextView
+                    android:text="DNI:"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5dp"  />
+
+                <TextView
+                    android:id="@+id/affiliate_dni"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10sp"
+                    tools:text="11223344" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_layout"
+                android:layout_below="@id/affiliate_dni_layout">
 
                 <TextView
                     android:text="Fecha:"

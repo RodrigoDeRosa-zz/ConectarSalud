@@ -66,9 +66,11 @@ class AffiliateHistoryFragment: Fragment(), OnHistoryAffiliateItemClickListener 
                             result[i].consultation_id?.let { it4 ->
                                 result[i].patient_firstname?.let { it5 ->
                                     result[i].patient_lastname?.let { it6 ->
-                                        HistoryAffiliateItemModel(
-                                            it, it1, it3, it2, it4, it5, it6
-                                        )
+                                        result[i].patient_dni?.let { it7 ->
+                                            HistoryAffiliateItemModel(
+                                                it, it1, it3, it2, it4, it5, it6, it7
+                                            )
+                                        }
                                     }
                                 }
                             }

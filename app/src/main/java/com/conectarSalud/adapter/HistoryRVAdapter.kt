@@ -25,15 +25,17 @@ class HistoryRVAdapter(val histories : ArrayList<HistoryAffiliateItemModel>,
         private lateinit var historyClicked: HistoryAffiliateItemModel
 
         var medicName: TextView
-        var affiliateName: TextView
         var specialities: TextView
+        var affiliateName: TextView
+        var affiliateDni: TextView
         var date: TextView
         var button: Button
 
         init {
             medicName = itemView.findViewById(R.id.medic_name)
-            affiliateName = itemView.findViewById(R.id.affiliate_name)
             specialities = itemView.findViewById(R.id.specialities)
+            affiliateName = itemView.findViewById(R.id.affiliate_name)
+            affiliateDni = itemView.findViewById(R.id.affiliate_dni)
             date = itemView.findViewById(R.id.date)
             button = itemView.findViewById(R.id.loadConsultation)
         }
@@ -43,6 +45,7 @@ class HistoryRVAdapter(val histories : ArrayList<HistoryAffiliateItemModel>,
         var history = histories?.get(position)
         holder.medicName.text = (history?.medicName ?: "none") +" "+ (history?.medicLastName?: "none")
         holder.affiliateName.text = (history?.affiliateName ?: "none") +" "+ (history?.affiliateLastName?: "none")
+        holder.affiliateDni.text = (history?.affiliateDni ?: "none")
         holder.specialities.text = history?.specialities?.joinToString(", ") ?: "none"
         holder.date.text = "Atendido el "+history?.date
 
