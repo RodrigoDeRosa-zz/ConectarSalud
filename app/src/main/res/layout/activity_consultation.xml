@@ -183,8 +183,8 @@
         app:layout_constraintTop_toBottomOf="@+id/consultationIndicationsTitle" />
 
     <Button
-        android:id="@+id/loadPrescription"
         style="@style/DefaultButton"
+        android:id="@+id/loadPrescription"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
         android:text="@string/load_prescription"
