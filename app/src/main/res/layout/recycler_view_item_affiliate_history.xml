@@ -134,6 +134,8 @@
                 style="@style/DefaultButton"
                 android:id="@+id/loadConsultation"
                 android:text="@string/see"
+                android:layout_margin="0dp"
+                android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />

@@ -59,6 +59,7 @@
         style="@style/DefaultButton"
         android:id="@+id/loadRating"
         android:text="@string/load_rating"
+        android:layout_margin="5dp"
         android:layout_below="@+id/commentTextField"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"

@@ -34,7 +34,6 @@
         style="@style/DefaultButton"
         android:id="@+id/cancelVideoButton"
         android:layout_gravity="center"
-        android:layout_marginTop="48dp"
         android:text="@string/cancel_video_chat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
