@@ -58,12 +58,13 @@
     <Button
         style="@style/DefaultButton"
         android:id="@+id/loadRating"
-        android:layout_below="@+id/commentTextField"
-        android:layout_centerHorizontal="true"
         android:text="@string/load_rating"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/commentTextField"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="30dp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar

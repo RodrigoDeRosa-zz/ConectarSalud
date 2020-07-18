@@ -67,14 +67,12 @@
     </LinearLayout>
 
     <Button
+        style="@style/DefaultButton"
         android:id="@+id/btnGoWaitingRoom"
         android:text="@string/startCallGeneric"
         android:layout_marginTop="5dp"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:visibility="invisible"
-        android:background="@color/secondaryGreen"
-        android:textColor="@color/black"
+        android:visibility="visible"
+        android:layout_gravity="center"
         />
 
 </LinearLayout>

@@ -47,8 +47,6 @@
         style="@style/DefaultButton"
         android:id="@+id/login"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:enabled="false"
         android:text="@string/action_sign_in" />
 

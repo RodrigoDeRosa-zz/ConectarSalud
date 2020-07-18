@@ -25,9 +25,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        style="@style/DefaultButton"
         android:id="@+id/loadPrescription"
         android:layout_width="50dp"
-        style="@style/DefaultButton"
         android:drawableLeft="@android:drawable/ic_menu_share"
         android:layout_centerHorizontal="true"
         app:layout_constraintEnd_toEndOf="parent"
